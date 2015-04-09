@@ -9,12 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-//extern NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodNameKey;
-//extern NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodIdentifierKey;
-//extern NSString * const CallNativeCompletionHandlerJavaScriptInfoArgumentsKey;
-//
-//extern NSString * const CallJavaScriptCompletionHandlerKey;
-
+typedef void (^JavaScriptControllerTaskHandler)(NSString *method, NSDictionary *arguments);
 typedef void (^JavaScriptControllerCompletionHandler)(NSDictionary *arguments);
 
 @protocol JavaScriptControllerJSExport <JSExport>
@@ -27,10 +22,9 @@ typedef void (^JavaScriptControllerCompletionHandler)(NSDictionary *arguments);
 @interface JavaScriptController : NSObject <JavaScriptControllerJSExport>
 
 @property (readonly, strong, nonatomic) JSContext *context;
-@property (weak, nonatomic) id target;
+@property (readonly, copy, nonatomic) JavaScriptControllerCompletionHandler completionHandlerToJavaScript;
 
-//+ (instancetype)shareController;
-+ (instancetype)javaScriptControllerWithContext:(JSContext *)context;
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler;
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments;
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler;
 

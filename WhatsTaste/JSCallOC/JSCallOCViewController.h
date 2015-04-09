@@ -9,12 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@protocol TestJSExport <JSExport>
-- (void)callNativeMethod:(NSString *)method;
-@end
-
-
-
 @interface JSCallOCViewController : UIViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 //@property (strong, nonatomic) JSContext *context;

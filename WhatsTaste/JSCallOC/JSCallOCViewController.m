@@ -38,10 +38,6 @@
     [self.webView loadRequest:request];
 }
 
-- (void)callNativeMethod:(NSString *)method {
-    NSLog(@"method:%@", method);
-}
-
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -58,97 +54,34 @@
     // Undocumented access to UIWebView's JSContext
     JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
-    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context];
+    __weak typeof(self) weakSelf = self;
+    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        
+        NSLog(@"Native task begins");
+        NSLog(@"method:%@", method);
+        NSLog(@"arguments:%@", arguments);
+        NSLog(@"Native task ends");
+        
+        NSLog(@"Callback to java script");
+        if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+            strongSelf.javaScriptController.completionHandlerToJavaScript(arguments);
+        }
+        
+//        NSLog(@"Java script task begins");
+//        [strongSelf.javaScriptController callJavaScriptMethod:@"updateResult" arguments:@{@"data": @"20480"} completionHandler:^(NSDictionary *arguments) {
+//            NSLog(@"arguments:%@", arguments);
+//            NSLog(@"Java script task ends");
+//        }];
+    }];
     self.javaScriptController = controller;
-    self.javaScriptController.target = self;
     
-    // 打印异常
-//    self.context.exceptionHandler =
-//    ^(JSContext *context, JSValue *exceptionValue)
-//    {
-//        context.exception = exceptionValue;
-//        NSLog(@"%@", exceptionValue);
-//    };
-    
-    // 以 JSExport 协议关联 native 的方法
-//    self.context[@"native"] = self.javaScriptController;
-    
-//    // 以 block 形式关联 JavaScript function
-//    self.context[@"log"] =
-//    ^(NSString *str)
-//    {
-//        NSLog(@"%@", str);
-//    };
-//    
-//    // 以 block 形式关联 JavaScript function
-////    self.context[@"alert"] =
-////    ^(NSString *str)
-////    {
-////        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"msg from js" message:str delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-////        [alert show];
-////    };
-//    
-//    __block typeof(self) weakSelf = self;
-//    self.context[@"addSubView"] =
-//    ^(NSString *viewname)
-//    {
-//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(10, 500, 300, 100)];
-//        view.backgroundColor = [UIColor redColor];
-//        UISwitch *sw = [[UISwitch alloc]init];
-//        [view addSubview:sw];
-//        [weakSelf.view addSubview:view];
-//    };
+    NSLog(@"Java script task begins");
+    [controller callJavaScriptMethod:@"updateResult" arguments:@{@"data": @"2048"} completionHandler:^(NSDictionary *arguments) {
+        NSLog(@"arguments:%@", arguments);
+        NSLog(@"Java script task ends");
+    }];
 }
-
-//#pragma mark - JSExport Methods
-//
-//- (void)handleFactorialCalculateWithNumber:(NSNumber *)number
-//{
-//    NSLog(@"%@", number);
-//    
-//    NSNumber *result = [self calculateFactorialOfNumber:number];
-//    
-//    NSLog(@"%@", result);
-//    
-//    [self.context[@"showResult"] callWithArguments:@[result]];
-//}
-//
-//- (void)alert2:(NSString *)str {
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"msg from js" message:str delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//    [alert show];
-//}
-//
-//- (void)getString {
-//    NSLog(@"getString");
-//}
-//
-//- (void)pushViewController:(NSString *)view title:(NSString *)title
-//{
-//    Class second = NSClassFromString(view);
-//    id secondVC = [[second alloc]init];
-//    ((UIViewController*)secondVC).title = title;
-//    [self.navigationController pushViewController:secondVC animated:YES];
-//}
-//
-//#pragma mark - Factorial Method
-//
-//- (NSNumber *)calculateFactorialOfNumber:(NSNumber *)number
-//{
-//    NSInteger i = [number integerValue];
-//    if (i < 0)
-//    {
-//        return [NSNumber numberWithInteger:0];
-//    }
-//    if (i == 0)
-//    {
-//        return [NSNumber numberWithInteger:1];
-//    }
-//    
-//    NSInteger r = (i * [(NSNumber *)[self calculateFactorialOfNumber:[NSNumber numberWithInteger:(i - 1)]] integerValue]);
-//    
-//    return [NSNumber numberWithInteger:r];
-//}
-
-
 
 @end

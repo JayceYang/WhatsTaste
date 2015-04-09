@@ -8,15 +8,11 @@
 
 #import "JavaScriptController.h"
 
-//NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodNameKey = @"nativeMethodName";
-//NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodIdentifierKey = @"nativeMethodIdentifier";
-//NSString * const CallNativeCompletionHandlerJavaScriptInfoArgumentsKey = @"nativeArguments";
-//
-//NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHandler";
-
 @interface JavaScriptController ()
 
 @property (strong, nonatomic) JSContext *context;
+@property (copy, nonatomic) JavaScriptControllerTaskHandler taskHandler;
+@property (copy, nonatomic) JavaScriptControllerCompletionHandler completionHandlerToJavaScript;
 
 @end
 
@@ -26,33 +22,29 @@
     self = [super init];
     if (self) {
         // Initialization code
-        
-        
+        self.context = nil;
+        self.taskHandler = nil;
+        self.completionHandlerToJavaScript = nil;
     }
     return self;
 }
 
 #pragma mark - Public
 
-+ (instancetype)shareController {
-    static id sharedInstance = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    
-    return sharedInstance;
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler {
+    return [self javaScriptControllerWithContext:context taskHandler:taskHandler completionHandler:nil];
 }
 
-+ (instancetype)javaScriptControllerWithContext:(JSContext *)context {
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
     JavaScriptController *controller = [[JavaScriptController alloc] init];
     controller.context = context;
     controller.context[@"native"] = controller;
-//    controller.context.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
-//        context.exception = exceptionValue;
-//        NSLog(@"%@", exceptionValue);
-//    };
+    controller.context.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
+        context.exception = exceptionValue;
+        NSLog(@"exception: %@", exceptionValue);
+    };
+    controller.taskHandler = taskHandler;
+    controller.completionHandlerToJavaScript = completionHandler;
     return controller;
 }
 
@@ -63,8 +55,17 @@
 }
 
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
-    JSValue *function = [self.context objectForKeyedSubscript:method];
-    [function callWithArguments:@[arguments, completionHandler]];
+    if (method.length > 0) {
+        JSValue *function = [self.context objectForKeyedSubscript:method];
+        NSMutableArray *safeArguments = [@[] mutableCopy];
+        if (arguments) {
+            [safeArguments addObject:arguments];
+        }
+        if (completionHandler) {
+            [safeArguments addObject:completionHandler];
+        }
+        [function callWithArguments:safeArguments];
+    }
 }
 
 #pragma mark - Java script calls native
@@ -74,15 +75,27 @@
 }
 
 - (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler {
-    NSLog(@"method:%@", method);
-    NSLog(@"arguments:%@", arguments);
-    NSLog(@"completionHandler:%@", completionHandler);
-    [completionHandler callWithArguments:@[@"1024"]];
-    
-    JavaScriptControllerCompletionHandler completion = ^(NSDictionary *arguments) {
-        NSLog(@"%@", arguments);
-    };
-    [self callJavaScriptMethod:@"updateResult" arguments:@{@"data": @"2048"} completionHandler:completion];
+//    NSLog(@"method:%@", method);
+//    NSLog(@"arguments:%@", arguments);
+//    NSLog(@"completionHandler:%@", completionHandler);
+    if (method.length > 0) {
+        
+        // Save completion handler first
+        self.completionHandlerToJavaScript = ^(NSDictionary *arguments) {
+            NSMutableArray *safeArguments = [@[] mutableCopy];
+            if (arguments) {
+                [safeArguments addObject:arguments];
+            }
+            if (completionHandler) {
+                [safeArguments addObject:completionHandler];
+            }
+            [completionHandler callWithArguments:@[arguments]];
+        };
+        
+        if (self.taskHandler) {
+            self.taskHandler(method, arguments);
+        }
+    }
 }
 
 @end

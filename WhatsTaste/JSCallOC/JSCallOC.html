@@ -33,24 +33,25 @@
     </style>
     
     <script type="text/javascript">
-        
-        function showResult(resultNumber)
-        {
-            document.getElementById("result").innerText = resultNumber;
-        }
     
     function updateResult(arguments, callback)
     {
-<!--        alert(arguments);-->
+        <!--        alert(arguments);-->
         document.getElementById("result").innerText = arguments["data"];
         callback({"result": arguments["data"]})
     }
-        function pay(resultNumber)
-        {
-            native.callNativeMethodArgumentsCompletionHandler('paymehod', {'pay': 'pay'}, function (data) {
-                                                          showResult(resultNumber)
+    
+    function pay(resultNumber)
+    {
+        native.callNativeMethodArgumentsCompletionHandler('paymehod', {'total': 1024}, function (data) {
+                                                          payCallback({'data': resultNumber})
                                                           })
-        }
+    }
+    
+    function payCallback(data)
+    {
+        alert(data['data']);
+    }
     
     </script>
     
@@ -73,7 +74,7 @@
         <center>
             
             <br/>
-            <input type="button" value="计算阶乘" onclick="pay('1024');" />
+            <input type="button" value="计算阶乘" onclick="pay('Phantom 3');" />
             <br/>
             <br/>
             
