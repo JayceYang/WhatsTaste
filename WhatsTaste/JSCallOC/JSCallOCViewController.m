@@ -7,6 +7,7 @@
 //
 
 #import "JSCallOCViewController.h"
+#import "DefineMacro.h"
 
 @interface JSCallOCViewController ()
 
@@ -29,8 +30,8 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"js call oc";
     
-    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]];
+//    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:DEMO_HTML]];
     [self.webView loadRequest:request];
 }
 

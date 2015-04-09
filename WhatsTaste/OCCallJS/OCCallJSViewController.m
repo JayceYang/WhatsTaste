@@ -7,6 +7,7 @@
 //
 
 #import "OCCallJSViewController.h"
+#import "DefineMacro.h"
 
 @interface OCCallJSViewController ()
 
@@ -29,16 +30,20 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"oc call js";
     self.context = [[JSContext alloc] init];
-    [self.context evaluateScript:[self loadJsFile:@"test"]];
-    
+    [self.context evaluateScript:[self loadJsFile:DEMO_JS]];
 
 }
-- (NSString *)loadJsFile:(NSString*)fileName
+
+- (NSString *)loadJsFile:(NSString*)stringURL
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"js"];
-    NSString *jsScript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    return jsScript;
+    NSURL  *url = [NSURL URLWithString:stringURL];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    
+//    NSLog(@"[[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding] = %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
+    
+    return [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

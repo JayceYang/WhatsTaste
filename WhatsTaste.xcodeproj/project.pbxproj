@@ -51,6 +51,7 @@
 		28E88DCD1ACD46ED00E11FB3 /* WhatsTasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsTasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DD21ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsTasteTests.m; sourceTree = "<group>"; };
+		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 				28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
 				28E88DB71ACD46ED00E11FB3 /* Supporting Files */,
+				F76143FD1AD667C1006313FA /* DefineMacro.h */,
 			);
 			path = WhatsTaste;
 			sourceTree = "<group>";
