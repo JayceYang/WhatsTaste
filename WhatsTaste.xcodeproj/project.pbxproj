@@ -14,6 +14,7 @@
 		28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */; };
 		28AFC90C1AD610E100A14BF8 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC90B1AD610E100A14BF8 /* test.js */; };
 		28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */; };
+		28AFC9121AD61CE000A14BF8 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9111AD61CE000A14BF8 /* JavaScriptController.m */; };
 		28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DB91ACD46ED00E11FB3 /* main.m */; };
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
@@ -42,6 +43,8 @@
 		28AFC90B1AD610E100A14BF8 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		28AFC9101AD61CE000A14BF8 /* JavaScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptController.h; sourceTree = "<group>"; };
+		28AFC9111AD61CE000A14BF8 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
 		28E88DB41ACD46ED00E11FB3 /* WhatsTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DB81ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DB91ACD46ED00E11FB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */,
 				28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */,
 				28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */,
+				28AFC9101AD61CE000A14BF8 /* JavaScriptController.h */,
+				28AFC9111AD61CE000A14BF8 /* JavaScriptController.m */,
 				28AFC8FD1AD610C900A14BF8 /* JSCallOC */,
 				28AFC9021AD610C900A14BF8 /* OCCallJS */,
 				28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */,
@@ -257,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */,
+				28AFC9121AD61CE000A14BF8 /* JavaScriptController.m in Sources */,
 				28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
 				28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */,
