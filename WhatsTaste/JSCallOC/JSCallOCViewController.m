@@ -9,6 +9,7 @@
 #import "JSCallOCViewController.h"
 #import "DefineMacro.h"
 
+
 @interface JSCallOCViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 
@@ -49,7 +50,10 @@
 #else
     NSNumber *inputNumber = [NSNumber numberWithInteger:[self.inputTextField.text integerValue]];
     JSValue *function = [self.context objectForKeyedSubscript:@"jsSquare"];
-    [function callWithArguments:@[inputNumber]];
+    TCompletionBlock completionBlock = ^(id result) {
+        NSLog(@"local: %@", result);
+    };
+    [function callWithArguments:@[inputNumber,completionBlock]];
 #endif
 }
 
@@ -76,18 +80,36 @@
     // 以 block 形式关联 JavaScript function    
     __block typeof(self) weakSelf = self;
     self.context[@"addSubView"] =
-    ^(NSString *viewname)
+//    ^(TCompletionBlock completionBlock)
+    ^(NSString *methodName)
     {
+        NSLog(@"%@",methodName);
         CGRect frame = weakSelf.view.frame;
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
         view.backgroundColor = [UIColor redColor];
         UISwitch *sw = [[UISwitch alloc]init];
         [view addSubview:sw];
         [weakSelf.view addSubview:view];
+//        completionBlock(@"i'm from oc");
+        
+        JSValue *callBack = [weakSelf.context objectForKeyedSubscript:methodName];
+        [callBack callWithArguments:@[@"i'm from oc"]];
+        
     };
 }
 
 #pragma mark - JSExport Methods
+
+- (void)addSubViewMethod:(JSValue *)completionBlock {
+    CGRect frame = self.view.frame;
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
+    view.backgroundColor = [UIColor redColor];
+    UISwitch *sw = [[UISwitch alloc]init];
+    [view addSubview:sw];
+    [self.view addSubview:view];
+//    ((TCompletionBlock)completionBlock)(@"i'm from oc");
+    [completionBlock callWithArguments:@[@"aa"]];
+}
 
 - (void)handleFactorialCalculateWithNumber:(NSNumber *)number {
     NSLog(@"%@", number);

@@ -29,7 +29,7 @@
 
 
     </style>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript">
         
         function updateResult(resultNumber)
@@ -37,11 +37,22 @@
             document.getElementById("result").innerText = resultNumber;
         }
     
-        function jsSquare(number)
+        function jsSquare(number, callback)
         {
             resultNumber = number * number;
             document.getElementById("result").innerText = resultNumber
+            callback({'result':resultNumber});
         }
+ 
+        function subViewCallBack(response){
+            updateResult('hahaha' + response)
+        }
+    
+    function myAddSubView() {
+
+        alert(native.addSubViewMethod);
+        native.addSubViewMethod(function(response){updateResult(response)})
+    }
     
     </script>
     
@@ -68,7 +79,7 @@
             <input type="button" value="oc原生Alert" onclick="native.showAlert('Hello Hybrid');" />
             <br/>
             <br/>
-            <input type="button" value="addSubView" onclick="addSubView('view');" />
+            <input type="button" id = 'subviewButton' value="addSubView" onclick="myAddSubView()"/>
             <br/>
             <br/>
             <a id="push" href="#" onclick="native.pushNewWebControllerWithURLTitle('http://www.baidu.com','Baidu');">

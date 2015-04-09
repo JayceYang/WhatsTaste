@@ -10,13 +10,16 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "WebViewController.h"
 
+typedef void (^TCompletionBlock)(id result);
+
+
 @protocol TestJSExport<JSExport>
 JSExportAs
 (calculateForJS  /** handleFactorialCalculateWithNumber 作为js方法的别名 */,
  - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
  );
 - (void)showAlert:(NSString *)str;
-
+- (void)addSubViewMethod:(JSValue *) completionBlock;
 @end
 
 
