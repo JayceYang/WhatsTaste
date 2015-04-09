@@ -9,19 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@protocol TestJSExport <JSExport>
-JSExportAs
-(calculateForJS  /** handleFactorialCalculateWithNumber 作为js方法的别名 */,
- - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
- );
-// - (void)getString;
-- (void)alert2:(NSString *)str;
-- (void)pushViewController:(NSString *)view title:(NSString *)title;
-@end
+//@protocol TestJSExport <JSExport>
+//JSExportAs
+//(calculateForJS  /** handleFactorialCalculateWithNumber 作为js方法的别名 */,
+// - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
+// );
+//// - (void)getString;
+//- (void)alert2:(NSString *)str;
+//- (void)pushViewController:(NSString *)view title:(NSString *)title;
+//@end
 
 
 
-@interface JSCallOCViewController : UIViewController<UIWebViewDelegate,TestJSExport>
+@interface JSCallOCViewController : UIViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) JSContext *context;
+//@property (strong, nonatomic) JSContext *context;
 @end

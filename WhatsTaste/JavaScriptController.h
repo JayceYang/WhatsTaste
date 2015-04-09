@@ -17,8 +17,14 @@ extern NSString * const CallJavaScriptCompletionHandlerKey;
 
 @interface JavaScriptController : NSObject <JSExport>
 
+@property (readonly, strong, nonatomic) JSContext *context;
+
++ (instancetype)shareController;
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context;
+
 #pragma mark - Java script calls native
 
+- (void)callNativeMethod:(NSString *)method;
 - (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments;
 
 /*

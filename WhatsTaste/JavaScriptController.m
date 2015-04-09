@@ -22,14 +22,52 @@ NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHand
 
 @implementation JavaScriptController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        // Initialization code
+        
+        
+    }
+    return self;
+}
+
++ (instancetype)shareController {
+    static id sharedInstance = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    
+    return sharedInstance;
+}
+
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context {
+    JavaScriptController *controller = [[JavaScriptController alloc] init];
+    controller.context = context;
+    controller.context[@"native"] = controller;
+    controller.context.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
+        context.exception = exceptionValue;
+        NSLog(@"%@", exceptionValue);
+    };
+    return controller;
+}
+
 #pragma mark - Java script calls native
+
+- (void)callNativeMethod:(NSString *)method {
+    NSLog(@"method:%@", method);
+}
 
 - (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments {
     [self callNativeMethod:method arguments:arguments completionHandlerJavaScriptInfo:nil];
 }
 
 - (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandlerJavaScriptInfo:(NSDictionary *)info {
-    
+    NSLog(@"method:%@", method);
+    NSLog(@"arguments:%@", arguments);
+    NSLog(@"completionHandlerJavaScriptInfo:%@", info);
 }
 
 #pragma mark - Native calls java script
