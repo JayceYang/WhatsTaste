@@ -8,20 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "WebViewController.h"
 
-@protocol TestJSExport <JSExport>
+@protocol TestJSExport<JSExport>
 JSExportAs
 (calculateForJS  /** handleFactorialCalculateWithNumber 作为js方法的别名 */,
  - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
  );
-// - (void)getString;
-- (void)alert2:(NSString *)str;
-- (void)pushViewController:(NSString *)view title:(NSString *)title;
+- (void)showAlert:(NSString *)str;
 @end
 
 
 
-@interface JSCallOCViewController : UIViewController<UIWebViewDelegate,TestJSExport>
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) JSContext *context;
+@interface JSCallOCViewController : WebViewController<TestJSExport>
 @end

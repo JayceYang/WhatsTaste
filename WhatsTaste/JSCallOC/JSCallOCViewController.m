@@ -10,6 +10,7 @@
 #import "DefineMacro.h"
 
 @interface JSCallOCViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 
 @end
 
@@ -30,26 +31,36 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"js call oc";
     
+#if 0 // use server html
 //    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:DEMO_HTML]];
     [self.webView loadRequest:request];
+#else
+    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
+    self.destinationURL = [NSURL fileURLWithPath:path];
+#endif
+}
+
+- (IBAction)nativeCallJS:(UIButton *)sender {
+    NSLog(@"native call js");
+    // Both ways work well.
+#if 0
+    [self.context evaluateScript:[NSString stringWithFormat:@"jsSquare(%@)", @(self.inputTextField.text.integerValue)]];
+#else
+    NSNumber *inputNumber = [NSNumber numberWithInteger:[self.inputTextField.text integerValue]];
+    JSValue *function = [self.context objectForKeyedSubscript:@"jsSquare"];
+    [function callWithArguments:@[inputNumber]];
+#endif
 }
 
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [super webViewDidFinishLoad:webView];
+    
     // 以 html title 设置 导航栏 title
     self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    
-    // 禁用 页面元素选择
-    //[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
-    
-    // 禁用 长按弹出ActionSheet
-    //[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
-    
-    // Undocumented access to UIWebView's JSContext
-    self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
     // 打印异常
     self.context.exceptionHandler =
@@ -62,8 +73,6 @@
     // 以 JSExport 协议关联 native 的方法
     self.context[@"native"] = self;
     
-    self.context[@"DJI"] = self;
-    
     // 以 block 形式关联 JavaScript function
     self.context[@"log"] =
     ^(NSString *str)
@@ -71,19 +80,12 @@
         NSLog(@"%@", str);
     };
     
-    // 以 block 形式关联 JavaScript function
-//    self.context[@"alert"] =
-//    ^(NSString *str)
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"msg from js" message:str delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//        [alert show];
-//    };
-    
     __block typeof(self) weakSelf = self;
     self.context[@"addSubView"] =
     ^(NSString *viewname)
     {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(10, 500, 300, 100)];
+        CGRect frame = weakSelf.view.frame;
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
         view.backgroundColor = [UIColor redColor];
         UISwitch *sw = [[UISwitch alloc]init];
         [view addSubview:sw];
@@ -93,32 +95,16 @@
 
 #pragma mark - JSExport Methods
 
-- (void)handleFactorialCalculateWithNumber:(NSNumber *)number
-{
+- (void)handleFactorialCalculateWithNumber:(NSNumber *)number {
     NSLog(@"%@", number);
-    
     NSNumber *result = [self calculateFactorialOfNumber:number];
-    
     NSLog(@"%@", result);
-    
-    [self.context[@"showResult"] callWithArguments:@[result]];
+    [self.context[@"updateResult"] callWithArguments:@[result]];
 }
 
-- (void)alert2:(NSString *)str {
+- (void)showAlert:(NSString *)str {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"msg from js" message:str delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
     [alert show];
-}
-
-- (void)getString {
-    NSLog(@"getString");
-}
-
-- (void)pushViewController:(NSString *)view title:(NSString *)title
-{
-    Class second = NSClassFromString(view);
-    id secondVC = [[second alloc]init];
-    ((UIViewController*)secondVC).title = title;
-    [self.navigationController pushViewController:secondVC animated:YES];
 }
 
 #pragma mark - Factorial Method

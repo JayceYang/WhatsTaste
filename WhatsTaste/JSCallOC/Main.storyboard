@@ -14,12 +14,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="JAn-jG-5qV" kind="relationship" relationship="rootViewController" id="DBG-5k-keS"/>
+                        <segue destination="Sog-Yb-ERW" kind="relationship" relationship="rootViewController" id="f14-wm-UWY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmY-mO-grW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="415"/>
+            <point key="canvasLocation" x="673" y="-43"/>
         </scene>
         <!--JavaScript Core-->
         <scene sceneID="MCP-0E-1GG">
@@ -235,4 +235,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="f14-wm-UWY"/>
+    </inferredMetricsTieBreakers>
 </document>
