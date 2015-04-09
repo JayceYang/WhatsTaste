@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28AFC8F91AD60F9A00A14BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */; };
+		28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */; };
+		28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */; };
+		28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */; };
+		28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */; };
+		28AFC90C1AD610E100A14BF8 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC90B1AD610E100A14BF8 /* test.js */; };
+		28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */; };
 		28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DB91ACD46ED00E11FB3 /* main.m */; };
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
 		28E88DD41ACD46ED00E11FB3 /* WhatsTasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */; };
-		28E88DE81ACD496A00E11FB3 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DE01ACD496A00E11FB3 /* HexColor.m */; };
-		28E88DE91ACD496A00E11FB3 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DE31ACD496A00E11FB3 /* UIDevice-Hardware.m */; };
-		28E88DEA1ACD496A00E11FB3 /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DE61ACD496A00E11FB3 /* WebViewJavascriptBridge.js.txt */; };
-		28E88DEB1ACD496A00E11FB3 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DE71ACD496A00E11FB3 /* WebViewJavascriptBridge.m */; };
-		28E88DF71ACD4A4200E11FB3 /* LMStackerBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DEE1ACD4A4200E11FB3 /* LMStackerBrowserController.m */; };
-		28E88DF81ACD4A4200E11FB3 /* LMStackerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DF01ACD4A4200E11FB3 /* LMStackerController.m */; };
-		28E88DF91ACD4A4200E11FB3 /* LMStackerCustomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DF21ACD4A4200E11FB3 /* LMStackerCustomAction.m */; };
-		28E88DFA1ACD4A4200E11FB3 /* LMStackerURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DF41ACD4A4200E11FB3 /* LMStackerURLParser.m */; };
-		28E88DFB1ACD4A4200E11FB3 /* LMStackerWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DF61ACD4A4200E11FB3 /* LMStackerWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +31,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		28AFC8FA1AD60FEC00A14BF8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSCallOC.html; sourceTree = "<group>"; };
+		28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCallOCViewController.h; sourceTree = "<group>"; };
+		28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCallOCViewController.m; sourceTree = "<group>"; };
+		28AFC9031AD610C900A14BF8 /* OCCallJSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCallJSViewController.h; sourceTree = "<group>"; };
+		28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCCallJSViewController.m; sourceTree = "<group>"; };
+		28AFC90B1AD610E100A14BF8 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		28E88DB41ACD46ED00E11FB3 /* WhatsTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DB81ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DB91ACD46ED00E11FB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,23 +51,6 @@
 		28E88DCD1ACD46ED00E11FB3 /* WhatsTasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsTasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DD21ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsTasteTests.m; sourceTree = "<group>"; };
-		28E88DDF1ACD496A00E11FB3 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
-		28E88DE01ACD496A00E11FB3 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
-		28E88DE21ACD496A00E11FB3 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
-		28E88DE31ACD496A00E11FB3 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
-		28E88DE51ACD496A00E11FB3 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		28E88DE61ACD496A00E11FB3 /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
-		28E88DE71ACD496A00E11FB3 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		28E88DED1ACD4A4200E11FB3 /* LMStackerBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMStackerBrowserController.h; sourceTree = "<group>"; };
-		28E88DEE1ACD4A4200E11FB3 /* LMStackerBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMStackerBrowserController.m; sourceTree = "<group>"; };
-		28E88DEF1ACD4A4200E11FB3 /* LMStackerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMStackerController.h; sourceTree = "<group>"; };
-		28E88DF01ACD4A4200E11FB3 /* LMStackerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMStackerController.m; sourceTree = "<group>"; };
-		28E88DF11ACD4A4200E11FB3 /* LMStackerCustomAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMStackerCustomAction.h; sourceTree = "<group>"; };
-		28E88DF21ACD4A4200E11FB3 /* LMStackerCustomAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMStackerCustomAction.m; sourceTree = "<group>"; };
-		28E88DF31ACD4A4200E11FB3 /* LMStackerURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMStackerURLParser.h; sourceTree = "<group>"; };
-		28E88DF41ACD4A4200E11FB3 /* LMStackerURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMStackerURLParser.m; sourceTree = "<group>"; };
-		28E88DF51ACD4A4200E11FB3 /* LMStackerWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMStackerWebViewController.h; sourceTree = "<group>"; };
-		28E88DF61ACD4A4200E11FB3 /* LMStackerWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMStackerWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +71,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28AFC8FD1AD610C900A14BF8 /* JSCallOC */ = {
+			isa = PBXGroup;
+			children = (
+				28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */,
+				28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */,
+				28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */,
+			);
+			path = JSCallOC;
+			sourceTree = "<group>";
+		};
+		28AFC9021AD610C900A14BF8 /* OCCallJS */ = {
+			isa = PBXGroup;
+			children = (
+				28AFC90B1AD610E100A14BF8 /* test.js */,
+				28AFC9031AD610C900A14BF8 /* OCCallJSViewController.h */,
+				28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */,
+			);
+			path = OCCallJS;
+			sourceTree = "<group>";
+		};
 		28E88DAB1ACD46ED00E11FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +114,14 @@
 			children = (
 				28E88DBB1ACD46ED00E11FB3 /* AppDelegate.h */,
 				28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */,
+				28AFC8FA1AD60FEC00A14BF8 /* ViewController.h */,
+				28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */,
+				28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */,
+				28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */,
+				28AFC8FD1AD610C900A14BF8 /* JSCallOC */,
+				28AFC9021AD610C900A14BF8 /* OCCallJS */,
+				28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
-				28E88DDD1ACD496A00E11FB3 /* Libraries */,
 				28E88DB71ACD46ED00E11FB3 /* Supporting Files */,
 			);
 			path = WhatsTaste;
@@ -133,62 +151,6 @@
 				28E88DD21ACD46ED00E11FB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		28E88DDD1ACD496A00E11FB3 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				28E88DEC1ACD4A4200E11FB3 /* LMStacker */,
-				28E88DDE1ACD496A00E11FB3 /* HexColor */,
-				28E88DE11ACD496A00E11FB3 /* UIDevice-Hardware */,
-				28E88DE41ACD496A00E11FB3 /* WebViewJavascriptBridge */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		28E88DDE1ACD496A00E11FB3 /* HexColor */ = {
-			isa = PBXGroup;
-			children = (
-				28E88DDF1ACD496A00E11FB3 /* HexColor.h */,
-				28E88DE01ACD496A00E11FB3 /* HexColor.m */,
-			);
-			path = HexColor;
-			sourceTree = "<group>";
-		};
-		28E88DE11ACD496A00E11FB3 /* UIDevice-Hardware */ = {
-			isa = PBXGroup;
-			children = (
-				28E88DE21ACD496A00E11FB3 /* UIDevice-Hardware.h */,
-				28E88DE31ACD496A00E11FB3 /* UIDevice-Hardware.m */,
-			);
-			path = "UIDevice-Hardware";
-			sourceTree = "<group>";
-		};
-		28E88DE41ACD496A00E11FB3 /* WebViewJavascriptBridge */ = {
-			isa = PBXGroup;
-			children = (
-				28E88DE51ACD496A00E11FB3 /* WebViewJavascriptBridge.h */,
-				28E88DE61ACD496A00E11FB3 /* WebViewJavascriptBridge.js.txt */,
-				28E88DE71ACD496A00E11FB3 /* WebViewJavascriptBridge.m */,
-			);
-			path = WebViewJavascriptBridge;
-			sourceTree = "<group>";
-		};
-		28E88DEC1ACD4A4200E11FB3 /* LMStacker */ = {
-			isa = PBXGroup;
-			children = (
-				28E88DED1ACD4A4200E11FB3 /* LMStackerBrowserController.h */,
-				28E88DEE1ACD4A4200E11FB3 /* LMStackerBrowserController.m */,
-				28E88DEF1ACD4A4200E11FB3 /* LMStackerController.h */,
-				28E88DF01ACD4A4200E11FB3 /* LMStackerController.m */,
-				28E88DF11ACD4A4200E11FB3 /* LMStackerCustomAction.h */,
-				28E88DF21ACD4A4200E11FB3 /* LMStackerCustomAction.m */,
-				28E88DF31ACD4A4200E11FB3 /* LMStackerURLParser.h */,
-				28E88DF41ACD4A4200E11FB3 /* LMStackerURLParser.m */,
-				28E88DF51ACD4A4200E11FB3 /* LMStackerWebViewController.h */,
-				28E88DF61ACD4A4200E11FB3 /* LMStackerWebViewController.m */,
-			);
-			path = LMStacker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +233,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28E88DEA1ACD496A00E11FB3 /* WebViewJavascriptBridge.js.txt in Resources */,
+				28AFC90C1AD610E100A14BF8 /* test.js in Resources */,
+				28AFC8F91AD60F9A00A14BF8 /* Main.storyboard in Resources */,
+				28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,15 +254,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28E88DEB1ACD496A00E11FB3 /* WebViewJavascriptBridge.m in Sources */,
-				28E88DF91ACD4A4200E11FB3 /* LMStackerCustomAction.m in Sources */,
-				28E88DF71ACD4A4200E11FB3 /* LMStackerBrowserController.m in Sources */,
-				28E88DE81ACD496A00E11FB3 /* HexColor.m in Sources */,
-				28E88DFB1ACD4A4200E11FB3 /* LMStackerWebViewController.m in Sources */,
-				28E88DE91ACD496A00E11FB3 /* UIDevice-Hardware.m in Sources */,
-				28E88DFA1ACD4A4200E11FB3 /* LMStackerURLParser.m in Sources */,
-				28E88DF81ACD4A4200E11FB3 /* LMStackerController.m in Sources */,
+				28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */,
+				28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
+				28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */,
+				28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */,
 				28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
