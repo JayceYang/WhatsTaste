@@ -9,39 +9,29 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-extern NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodNameKey;
-extern NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodIdentifierKey;
-extern NSString * const CallNativeCompletionHandlerJavaScriptInfoArgumentsKey;
+//extern NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodNameKey;
+//extern NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodIdentifierKey;
+//extern NSString * const CallNativeCompletionHandlerJavaScriptInfoArgumentsKey;
+//
+//extern NSString * const CallJavaScriptCompletionHandlerKey;
 
-extern NSString * const CallJavaScriptCompletionHandlerKey;
+typedef void (^JavaScriptControllerCompletionHandler)(NSDictionary *arguments);
 
-@interface JavaScriptController : NSObject <JSExport>
+@protocol JavaScriptControllerJSExport <JSExport>
+
+- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments;
+- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler;
+
+@end
+
+@interface JavaScriptController : NSObject <JavaScriptControllerJSExport>
 
 @property (readonly, strong, nonatomic) JSContext *context;
+@property (weak, nonatomic) id target;
 
-+ (instancetype)shareController;
+//+ (instancetype)shareController;
 + (instancetype)javaScriptControllerWithContext:(JSContext *)context;
-
-#pragma mark - Java script calls native
-
-- (void)callNativeMethod:(NSString *)method;
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments;
-
-/*
- info-> {
-    "methodName": "callbackMethodName"
-    "methodIdentifier": 0
-    "arguments": {
-        "value": 1024
-    }
- }
- */
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandlerJavaScriptInfo:(NSDictionary *)info;
-
-#pragma mark - Native calls java script
-
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments;
-
-- (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(void (^)(NSString *methodName, NSString *methodIdentifier, NSError *error))completionHandler;
+- (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler;
 
 @end

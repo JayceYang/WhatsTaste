@@ -9,15 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-//@protocol TestJSExport <JSExport>
-//JSExportAs
-//(calculateForJS  /** handleFactorialCalculateWithNumber 作为js方法的别名 */,
-// - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
-// );
-//// - (void)getString;
-//- (void)alert2:(NSString *)str;
-//- (void)pushViewController:(NSString *)view title:(NSString *)title;
-//@end
+@protocol TestJSExport <JSExport>
+- (void)callNativeMethod:(NSString *)method;
+@end
 
 
 

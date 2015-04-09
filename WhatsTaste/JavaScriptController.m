@@ -8,11 +8,11 @@
 
 #import "JavaScriptController.h"
 
-NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodNameKey = @"nativeMethodName";
-NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodIdentifierKey = @"nativeMethodIdentifier";
-NSString * const CallNativeCompletionHandlerJavaScriptInfoArgumentsKey = @"nativeArguments";
-
-NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHandler";
+//NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodNameKey = @"nativeMethodName";
+//NSString * const CallNativeCompletionHandlerJavaScriptInfoMethodIdentifierKey = @"nativeMethodIdentifier";
+//NSString * const CallNativeCompletionHandlerJavaScriptInfoArgumentsKey = @"nativeArguments";
+//
+//NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHandler";
 
 @interface JavaScriptController ()
 
@@ -32,6 +32,8 @@ NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHand
     return self;
 }
 
+#pragma mark - Public
+
 + (instancetype)shareController {
     static id sharedInstance = nil;
     
@@ -47,27 +49,11 @@ NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHand
     JavaScriptController *controller = [[JavaScriptController alloc] init];
     controller.context = context;
     controller.context[@"native"] = controller;
-    controller.context.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
-        context.exception = exceptionValue;
-        NSLog(@"%@", exceptionValue);
-    };
+//    controller.context.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
+//        context.exception = exceptionValue;
+//        NSLog(@"%@", exceptionValue);
+//    };
     return controller;
-}
-
-#pragma mark - Java script calls native
-
-- (void)callNativeMethod:(NSString *)method {
-    NSLog(@"method:%@", method);
-}
-
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments {
-    [self callNativeMethod:method arguments:arguments completionHandlerJavaScriptInfo:nil];
-}
-
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandlerJavaScriptInfo:(NSDictionary *)info {
-    NSLog(@"method:%@", method);
-    NSLog(@"arguments:%@", arguments);
-    NSLog(@"completionHandlerJavaScriptInfo:%@", info);
 }
 
 #pragma mark - Native calls java script
@@ -76,11 +62,27 @@ NSString * const CallJavaScriptCompletionHandlerKey = @"javaScriptCompletionHand
     [self callJavaScriptMethod:method arguments:arguments completionHandler:nil];
 }
 
-- (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(void (^)(NSString *methodName, NSString *methodIdentifier, NSError *error))completionHandler {
+- (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
     JSValue *function = [self.context objectForKeyedSubscript:method];
-    JSValue *completion = [[JSValue alloc] init];
-    [completion setValue:completionHandler forKey:CallJavaScriptCompletionHandlerKey];
-    [function callWithArguments:@[arguments, completion]];
+    [function callWithArguments:@[arguments, completionHandler]];
+}
+
+#pragma mark - Java script calls native
+
+- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments {
+    [self callNativeMethod:method arguments:arguments completionHandler:nil];
+}
+
+- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler {
+    NSLog(@"method:%@", method);
+    NSLog(@"arguments:%@", arguments);
+    NSLog(@"completionHandler:%@", completionHandler);
+    [completionHandler callWithArguments:@[@"1024"]];
+    
+    JavaScriptControllerCompletionHandler completion = ^(NSDictionary *arguments) {
+        NSLog(@"%@", arguments);
+    };
+    [self callJavaScriptMethod:@"updateResult" arguments:@{@"data": @"2048"} completionHandler:completion];
 }
 
 @end

@@ -38,6 +38,10 @@
     [self.webView loadRequest:request];
 }
 
+- (void)callNativeMethod:(NSString *)method {
+    NSLog(@"method:%@", method);
+}
+
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -56,6 +60,7 @@
     
     JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context];
     self.javaScriptController = controller;
+    self.javaScriptController.target = self;
     
     // 打印异常
 //    self.context.exceptionHandler =
