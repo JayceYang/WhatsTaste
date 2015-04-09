@@ -65,16 +65,13 @@
         <center>
             <br/>
             <br/>
-            <input type="button" value="测试log" onclick="log('测试');" />
-            <br/>
-            <br/>
-            <input type="button" value="oc原生Alert" onclick="showAlert('Hello Hybrid');" />
+            <input type="button" value="oc原生Alert" onclick="native.showAlert('Hello Hybrid');" />
             <br/>
             <br/>
             <input type="button" value="addSubView" onclick="addSubView('view');" />
             <br/>
             <br/>
-            <a id="push" href="#" onclick="native.pushNewWebControllerWithURLTitle('http://www.baidu.com','secondPushedFromJS');">
+            <a id="push" href="#" onclick="native.pushNewWebControllerWithURLTitle('http://www.baidu.com','Baidu');">
 
                 push to a new URL: Baidu
             </a>

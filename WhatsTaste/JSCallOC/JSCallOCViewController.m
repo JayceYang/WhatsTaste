@@ -73,13 +73,7 @@
     // 以 JSExport 协议关联 native 的方法
     self.context[@"native"] = self;
     
-    // 以 block 形式关联 JavaScript function
-    self.context[@"log"] =
-    ^(NSString *str)
-    {
-        NSLog(@"%@", str);
-    };
-    
+    // 以 block 形式关联 JavaScript function    
     __block typeof(self) weakSelf = self;
     self.context[@"addSubView"] =
     ^(NSString *viewname)

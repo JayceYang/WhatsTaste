@@ -16,6 +16,7 @@ JSExportAs
  - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
  );
 - (void)showAlert:(NSString *)str;
+
 @end
 
 
