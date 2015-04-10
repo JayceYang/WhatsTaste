@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.javaScriptControllerTaskHandler = [NSMutableDictionary dictionary];
+    self.javaScriptControllerTaskHandlerDictionary = [NSMutableDictionary dictionary];
     
     [self setupJavaScriptControllerTaskHandler];
 }
@@ -24,7 +24,7 @@
 - (void)setupJavaScriptControllerTaskHandler {
     __weak typeof(self) weakSelf = self;
     
-    [self.javaScriptControllerTaskHandler setObject:@"changeColor" forKey:^(NSDictionary *arguments) {
+    [self.javaScriptControllerTaskHandlerDictionary setObject:[^(NSDictionary *arguments) {
         
         __strong typeof(self) strongSelf = weakSelf;
         NSInteger aRedValue = arc4random()%255;
@@ -33,7 +33,7 @@
         UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
         strongSelf.view.backgroundColor = randomColor;
         
-    }];
+    } copy] forKey:@"changeColor"];
     
 }
 
@@ -93,7 +93,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandler objectForKey:method];
+            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandlerDictionary objectForKey:method];
             nativeFunction(arguments);
             
 //            if ([method isEqualToString:@"changeColor"]) {

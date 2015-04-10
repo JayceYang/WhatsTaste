@@ -20,6 +20,7 @@
 		EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */; };
 		EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6BE1181AD64E3E00A3A249 /* WebViewController.m */; };
 		EC828EEA1AD66D32000F352E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC828EE91AD66D32000F352E /* Main.storyboard */; };
+		F73267811AD7C40800F7AE0A /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = F73267801AD7C40800F7AE0A /* sample.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		EC6BE1171AD64E3E00A3A249 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EC6BE1181AD64E3E00A3A249 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		EC828EE91AD66D32000F352E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F73267801AD7C40800F7AE0A /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		28AFC8FD1AD610C900A14BF8 /* JSCallOC */ = {
 			isa = PBXGroup;
 			children = (
+				F73267801AD7C40800F7AE0A /* sample.html */,
 				EC828EE91AD66D32000F352E /* Main.storyboard */,
 				28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */,
 				28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */,
@@ -248,6 +251,7 @@
 				28AFC90C1AD610E100A14BF8 /* test.js in Resources */,
 				28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
+				F73267811AD7C40800F7AE0A /* sample.html in Resources */,
 				EC828EEA1AD66D32000F352E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

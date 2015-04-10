@@ -36,7 +36,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:DEMO_HTML]];
     [self.webView loadRequest:request];
 #else
-    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
+    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"sample.html"];
     self.destinationURL = [NSURL fileURLWithPath:path];
 #endif
 }
@@ -45,12 +45,12 @@
     [super setupJavaScriptControllerTaskHandler];
     __weak typeof(self) weakSelf = self;
     
-    [self.javaScriptControllerTaskHandler setObject:@"changeText" forKey:^(NSDictionary *arguments) {
+    [self.javaScriptControllerTaskHandlerDictionary setObject:[^(NSDictionary *arguments) {
         
         __strong typeof(self) strongSelf = weakSelf;
-        strongSelf.inputTextField.text = arguments[@"text"];
+        strongSelf.inputTextField.text = @"我已经改变了文字";
         
-    }];
+    } copy] forKey:@"changeText"];
     
 }
 
@@ -107,7 +107,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandler objectForKey:method];
+            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandlerDictionary objectForKey:method];
             nativeFunction(arguments);
         });
         
