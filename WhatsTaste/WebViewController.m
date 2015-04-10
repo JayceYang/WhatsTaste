@@ -16,7 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.javaScriptControllerTaskHandler = [NSMutableDictionary dictionary];
+    
+    [self setupJavaScriptControllerTaskHandler];
+}
 
+- (void)setupJavaScriptControllerTaskHandler {
+    __weak typeof(self) weakSelf = self;
+    
+    [self.javaScriptControllerTaskHandler setObject:@"changeColor" forKey:^(NSDictionary *arguments) {
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        NSInteger aRedValue = arc4random()%255;
+        NSInteger aGreenValue = arc4random()%255;
+        NSInteger aBlueValue = arc4random()%255;
+        UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
+        strongSelf.view.backgroundColor = randomColor;
+        
+    }];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -68,6 +86,36 @@
     
     // Undocumented access to UIWebView's JSContext
     self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
+    __weak typeof(self) weakSelf = self;
+    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:self.context taskHandler:^(NSString *method, NSDictionary *arguments) {
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandler objectForKey:method];
+            nativeFunction(arguments);
+            
+//            if ([method isEqualToString:@"changeColor"]) {
+//                NSInteger aRedValue = arc4random()%255;
+//                NSInteger aGreenValue = arc4random()%255;
+//                NSInteger aBlueValue = arc4random()%255;
+//                UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
+////                strongSelf.nativeView.backgroundColor = randomColor;
+//            }
+//            NSLog(@"Native task begins");
+//            NSLog(@"method:%@", method);
+//            NSLog(@"arguments:%@", arguments);
+//            NSLog(@"Native task ends");
+        });
+        
+        NSLog(@"Callback to java script");
+        if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+            strongSelf.javaScriptController.completionHandlerToJavaScript(arguments);
+        }
+    }];
+    self.javaScriptController = controller;
+    
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Load webview with error: %@", error);

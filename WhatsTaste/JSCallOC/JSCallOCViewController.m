@@ -41,6 +41,19 @@
 #endif
 }
 
+- (void)setupJavaScriptControllerTaskHandler {
+    [super setupJavaScriptControllerTaskHandler];
+    __weak typeof(self) weakSelf = self;
+    
+    [self.javaScriptControllerTaskHandler setObject:@"changeText" forKey:^(NSDictionary *arguments) {
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.inputTextField.text = arguments[@"text"];
+        
+    }];
+    
+}
+
 - (IBAction)nativeCallJS:(UIButton *)sender {
     NSLog(@"native call js");
     // Both ways work well.
@@ -57,34 +70,54 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [super webViewDidFinishLoad:webView];
+//    [super webViewDidFinishLoad:webView];
+//    
+//    // 以 html title 设置 导航栏 title
+//    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//    
+//    // 打印异常
+//    self.context.exceptionHandler =
+//    ^(JSContext *context, JSValue *exceptionValue)
+//    {
+//        context.exception = exceptionValue;
+//        NSLog(@"%@", exceptionValue);
+//    };
+//    
+//    // 以 JSExport 协议关联 native 的方法
+//    self.context[@"native"] = self;
+//    
+//    // 以 block 形式关联 JavaScript function    
+//    __block typeof(self) weakSelf = self;
+//    self.context[@"addSubView"] =
+//    ^(NSString *viewname)
+//    {
+//        CGRect frame = weakSelf.view.frame;
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
+//        view.backgroundColor = [UIColor redColor];
+//        UISwitch *sw = [[UISwitch alloc]init];
+//        [view addSubview:sw];
+//        [weakSelf.view addSubview:view];
+//    };
     
-    // 以 html title 设置 导航栏 title
-    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
-    // 打印异常
-    self.context.exceptionHandler =
-    ^(JSContext *context, JSValue *exceptionValue)
-    {
-        context.exception = exceptionValue;
-        NSLog(@"%@", exceptionValue);
-    };
+    __weak typeof(self) weakSelf = self;
+    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:self.context taskHandler:^(NSString *method, NSDictionary *arguments) {
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandler objectForKey:method];
+            nativeFunction(arguments);
+        });
+        
+        NSLog(@"Callback to java script");
+        if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+            strongSelf.javaScriptController.completionHandlerToJavaScript(arguments);
+        }
+    }];
+    self.javaScriptController = controller;
     
-    // 以 JSExport 协议关联 native 的方法
-    self.context[@"native"] = self;
-    
-    // 以 block 形式关联 JavaScript function    
-    __block typeof(self) weakSelf = self;
-    self.context[@"addSubView"] =
-    ^(NSString *viewname)
-    {
-        CGRect frame = weakSelf.view.frame;
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
-        view.backgroundColor = [UIColor redColor];
-        UISwitch *sw = [[UISwitch alloc]init];
-        [view addSubview:sw];
-        [weakSelf.view addSubview:view];
-    };
 }
 
 #pragma mark - JSExport Methods
