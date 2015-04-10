@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"/>
+    
+    <title>Sample HTML</title>
+    
+    <style>
+        *
+        {
+            //-webkit-tap-highlight-color: rgba(0,0,0,0);
+            text-decoration: none;
+        }
+    
+        html,body
+        {
+            -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+            -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+            -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+        }
+    
+        #div-a
+        {
+            background:#FBA;
+            color:#FFF;
+
+            border-radius: 25px 5px;
+        }
+
+
+    </style>
+    
+    <script type="text/javascript">
+    
+    function changeInputFromNative(arguments, callback)
+    {
+        <!--        alert(arguments);-->
+        document.getElementById("input").innerText = arguments["data"];
+        callback({"result": arguments["data"]})
+    }
+    
+    function changeColor()
+    {
+        native.callNativeMethodArgumentsCompletionHandler('changeColor', {'total': 1024}, function (data) {
+                                                          changeColorCallback({'data': 'Native已变色，并告知了我！'})
+                                                          })
+    }
+    
+    function changeColorCallback(data)
+    {
+        alert(data['data']);
+    }
+    
+    </script>
+    
+</head>
+
+<body style="background:#CDE; color:#FFF">
+    
+    <div id="div-a">
+        <center>
+            
+            <textarea  id="input" style="font-size:10pt;color:black;"></textarea>
+            
+            <br/>
+            <input type="button" value="我要随机改变Native的背景色" onclick="changeColor();" />
+            <br/>
+            
+        </center>
+    </div>
+
+    
+    
+</body>
+
+</html>

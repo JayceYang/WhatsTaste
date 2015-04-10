@@ -9,12 +9,8 @@
 /* Begin PBXBuildFile section */
 		28AFC8F91AD60F9A00A14BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */; };
 		28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */; };
-		28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */; };
-		28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */; };
-		28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */; };
-		28AFC90C1AD610E100A14BF8 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC90B1AD610E100A14BF8 /* test.js */; };
-		28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */; };
 		28AFC9121AD61CE000A14BF8 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9111AD61CE000A14BF8 /* JavaScriptController.m */; };
+		28BDEE641AD768DB003650FE /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 28BDEE631AD768DB003650FE /* sample.html */; };
 		28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DB91ACD46ED00E11FB3 /* main.m */; };
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
@@ -35,16 +31,9 @@
 		28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		28AFC8FA1AD60FEC00A14BF8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSCallOC.html; sourceTree = "<group>"; };
-		28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCallOCViewController.h; sourceTree = "<group>"; };
-		28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCallOCViewController.m; sourceTree = "<group>"; };
-		28AFC9031AD610C900A14BF8 /* OCCallJSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCallJSViewController.h; sourceTree = "<group>"; };
-		28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCCallJSViewController.m; sourceTree = "<group>"; };
-		28AFC90B1AD610E100A14BF8 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		28AFC9101AD61CE000A14BF8 /* JavaScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptController.h; sourceTree = "<group>"; };
 		28AFC9111AD61CE000A14BF8 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
+		28BDEE631AD768DB003650FE /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
 		28E88DB41ACD46ED00E11FB3 /* WhatsTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DB81ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DB91ACD46ED00E11FB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -75,26 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28AFC8FD1AD610C900A14BF8 /* JSCallOC */ = {
-			isa = PBXGroup;
-			children = (
-				28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */,
-				28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */,
-				28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */,
-			);
-			path = JSCallOC;
-			sourceTree = "<group>";
-		};
-		28AFC9021AD610C900A14BF8 /* OCCallJS */ = {
-			isa = PBXGroup;
-			children = (
-				28AFC90B1AD610E100A14BF8 /* test.js */,
-				28AFC9031AD610C900A14BF8 /* OCCallJSViewController.h */,
-				28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */,
-			);
-			path = OCCallJS;
-			sourceTree = "<group>";
-		};
 		28E88DAB1ACD46ED00E11FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -116,20 +85,17 @@
 		28E88DB61ACD46ED00E11FB3 /* WhatsTaste */ = {
 			isa = PBXGroup;
 			children = (
+				28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */,
 				28E88DBB1ACD46ED00E11FB3 /* AppDelegate.h */,
 				28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */,
 				28AFC8FA1AD60FEC00A14BF8 /* ViewController.h */,
 				28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */,
-				28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */,
-				28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */,
 				28AFC9101AD61CE000A14BF8 /* JavaScriptController.h */,
 				28AFC9111AD61CE000A14BF8 /* JavaScriptController.m */,
-				28AFC8FD1AD610C900A14BF8 /* JSCallOC */,
-				28AFC9021AD610C900A14BF8 /* OCCallJS */,
-				28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */,
+				F76143FD1AD667C1006313FA /* DefineMacro.h */,
+				28BDEE631AD768DB003650FE /* sample.html */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
 				28E88DB71ACD46ED00E11FB3 /* Supporting Files */,
-				F76143FD1AD667C1006313FA /* DefineMacro.h */,
 			);
 			path = WhatsTaste;
 			sourceTree = "<group>";
@@ -240,9 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AFC90C1AD610E100A14BF8 /* test.js in Resources */,
 				28AFC8F91AD60F9A00A14BF8 /* Main.storyboard in Resources */,
-				28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */,
+				28BDEE641AD768DB003650FE /* sample.html in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +228,7 @@
 			files = (
 				28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */,
 				28AFC9121AD61CE000A14BF8 /* JavaScriptController.m in Sources */,
-				28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
-				28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */,
-				28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */,
 				28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
