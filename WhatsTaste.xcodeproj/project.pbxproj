@@ -17,6 +17,7 @@
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
 		28E88DD41ACD46ED00E11FB3 /* WhatsTasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */; };
+		EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */; };
 		EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6BE1181AD64E3E00A3A249 /* WebViewController.m */; };
 		EC828EEA1AD66D32000F352E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC828EE91AD66D32000F352E /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -51,10 +52,12 @@
 		28E88DCD1ACD46ED00E11FB3 /* WhatsTasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsTasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DD21ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsTasteTests.m; sourceTree = "<group>"; };
-		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
+		EC4022B71AD77BE000AC18A5 /* JavaScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptController.h; sourceTree = "<group>"; };
+		EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
 		EC6BE1171AD64E3E00A3A249 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EC6BE1181AD64E3E00A3A249 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		EC828EE91AD66D32000F352E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */,
 				EC6BE1171AD64E3E00A3A249 /* WebViewController.h */,
 				EC6BE1181AD64E3E00A3A249 /* WebViewController.m */,
+				EC4022B71AD77BE000AC18A5 /* JavaScriptController.h */,
+				EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */,
 				28AFC8FD1AD610C900A14BF8 /* JSCallOC */,
 				28AFC9021AD610C900A14BF8 /* OCCallJS */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
@@ -265,6 +270,7 @@
 				EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */,
 				28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
+				EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */,
 				28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */,
 				28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */,
 				28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */,
