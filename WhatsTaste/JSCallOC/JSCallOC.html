@@ -89,14 +89,14 @@
 
         function calculateForNative(value, nativeCallback)
         {
-            document.getElementById("cal_for_native").innerText = value + " * " + value;
-            var result = value * value;
+            document.getElementById("cal_for_native").innerText = value["calculate"] + " * " + value["calculate"];
+            var result = value["calculate"] * value["calculate"];
+<!--            callback_to_native(nativeCallback, {"squareValueResult":result}, null);-->
             setTimeout(function()
             {
-                jsAlert("nativeCallback is " + nativeCallback);
-                callback_to_native(nativeCallback, result, null);
-                document.getElementById("cal_for_native").innerText = "";
-            },1000);
+                callback_to_native(nativeCallback, {"squareValueResult":result}, null);
+               document.getElementById("cal_for_native").innerText = "";
+            }, 1000);
         }
 
         function showResult(resultNumber)

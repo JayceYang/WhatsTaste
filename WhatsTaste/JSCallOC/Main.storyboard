@@ -122,8 +122,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-w9-wvS">
-                                <rect key="frame" x="131" y="135" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-w9-wvS">
+                                <rect key="frame" x="131" y="135" width="156" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -140,6 +141,7 @@
                     <navigationItem key="navigationItem" id="qZQ-yn-8Tq"/>
                     <connections>
                         <outlet property="inputTextField" destination="qyX-PS-UPg" id="jTg-0m-hVn"/>
+                        <outlet property="jsCaculateResultLabel" destination="ePK-w9-wvS" id="LfJ-aS-l78"/>
                         <outlet property="webView" destination="xUl-mN-zu7" id="9JQ-IS-4Ax"/>
                     </connections>
                 </viewController>

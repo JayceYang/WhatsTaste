@@ -52,11 +52,14 @@
     JSValue *function = [self.context objectForKeyedSubscript:@"jsSquare"];
     [function callWithArguments:@[inputNumber]];
     
-    [self.javaScriptController callJavaScriptMethod:@"changeInputFromNative" arguments:@{@"data": self.inputTextField.text} completionHandler:^(NSDictionary *arguments) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Web的内容已经改变了，并告知了我！" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
+    __weak typeof(self) weakSelf = self;
+    [self.javaScriptController callJavaScriptMethod:@"calculateForNative" arguments:@{@"calculate": self.inputTextField.text} completionHandler:^(NSDictionary *arguments) {
+        __strong typeof(self) strongSelf = weakSelf;
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Web的内容已经改变了，并告知了我！" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+//        [alertView show];
         NSLog(@"arguments:%@", arguments);
         NSLog(@"Java script task ends");
+        strongSelf.jsCaculateResultLabel.text = [NSString stringWithFormat:@"%@", [arguments objectForKey:@"squareValueResult"]];
     }];
 #endif
 }
