@@ -37,7 +37,6 @@
     
     function changeInputFromNative(arguments, callback)
     {
-        <!--        alert(arguments);-->
         document.getElementById("input").innerText = arguments["data"];
 <!--        callback({"result": arguments["data"]})-->
         callbackToNative(callback, {"result": arguments["data"]}, '');
@@ -45,6 +44,7 @@
     
     function changeColor()
     {
+<!--        alert('changeColor1024');-->
         callNative('changeColor', {'total': 1024}, function (data) {
                          changeColorCallback({'data': 'Native已变色，并告知了我！'})
                    }, '');
