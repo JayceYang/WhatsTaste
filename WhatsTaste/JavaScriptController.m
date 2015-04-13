@@ -43,6 +43,11 @@
         context.exception = exceptionValue;
         NSLog(@"exception: %@", exceptionValue);
     };
+    
+    NSURL *URL = [[NSBundle mainBundle] URLForResource:@"native_bridge" withExtension:@"js"];
+    NSString *scriptCode = [NSString stringWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:NULL];
+    [controller.context evaluateScript:scriptCode];
+    
     controller.taskHandler = taskHandler;
     controller.completionHandlerToJavaScript = completionHandler;
     return controller;
