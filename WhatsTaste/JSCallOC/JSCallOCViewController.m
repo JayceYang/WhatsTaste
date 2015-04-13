@@ -87,16 +87,28 @@
 //        [weakSelf.view addSubview:view];
 //    };
     
+    // 以 html title 设置 导航栏 title
+    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    // 禁用 页面元素选择
+    //[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
+    
+    // 禁用 长按弹出ActionSheet
+    //[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
+    
+    // Undocumented access to UIWebView's JSContext
+    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
     __weak typeof(self) weakSelf = self;
     JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
         __strong typeof(self) strongSelf = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([method isEqualToString:@"changeColor"]) {
+            if ([method isEqualToString:@"calculate"]) {
                 NSInteger aRedValue = arc4random()%255;
                 NSInteger aGreenValue = arc4random()%255;
                 NSInteger aBlueValue = arc4random()%255;
                 UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
-                strongSelf.nativeView.backgroundColor = randomColor;
+//                strongSelf.nativeView.backgroundColor = randomColor;
             }
             NSLog(@"Native task begins");
             NSLog(@"method:%@", method);
