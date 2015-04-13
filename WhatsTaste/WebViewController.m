@@ -77,7 +77,11 @@
     
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    // 以 html title 设置 导航栏 title
+    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
     // 禁用 页面元素选择
     //[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
     
@@ -85,8 +89,35 @@
     //[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
     
     // Undocumented access to UIWebView's JSContext
-    self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
+    __weak typeof(self) weakSelf = self;
+    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
+        __strong typeof(self) strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NativeFunction nativeFunction = [self.javaScriptControllerTaskHandlerDictionary objectForKey:method];
+            NSDictionary * returnValue = nativeFunction(arguments);
+            
+            NSLog(@"Native task begins");
+            NSLog(@"method:%@", method);
+            NSLog(@"arguments:%@", arguments);
+            NSLog(@"Native task ends");
+            
+            NSLog(@"Callback to java script");
+            
+            if (returnValue) {
+                if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+                    strongSelf.javaScriptController.completionHandlerToJavaScript(returnValue);
+                }
+            }
+            
+        });
+        
+    }];
+    self.javaScriptController = controller;
 }
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Load webview with error: %@", error);
 }
