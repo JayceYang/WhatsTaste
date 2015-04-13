@@ -69,7 +69,7 @@
         <!--            <br/>-->
 
 
-        <a id="push" href="#" onclick="pushViewControllerTitle('DetailsViewController','secondPushedFromJS');">
+        <a id="push" href="#" onclick="pushWebViewControllerTitle('http://www.baidu.com','secondPushedFromJS');">
             push to details ViewController
         </a>
 
@@ -81,9 +81,9 @@
 
 <script type="text/javascript">
 
-        function pushViewControllerTitle(viewController, title)
+        function pushWebViewControllerTitle(destinationURL, title)
         {
-            call_native("pushViewControllerTitle", {'viewController': viewController, 'title': title}, '');
+            call_native("pushWebViewControllerTitle", {'destinationURL': destinationURL, 'title': title}, '');
         }
 
         function calculateByNative(value)

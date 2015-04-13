@@ -38,13 +38,13 @@
     
     [self.javaScriptControllerTaskHandlerDictionary setObject:[^NSDictionary * (NSDictionary *arguments) {
         __strong typeof(self) strongSelf = weakSelf;
-//        UIViewController* viewController = arguments[@"viewController"];
         UIViewController* viewController = [[NSClassFromString(arguments[@"viewController"]) alloc] init];
-        NSString* title = arguments[@"title"];
+        NSString *destinationURL = arguments[@"destinationURL"];
+        NSString *title = arguments[@"title"];
         viewController.title = title;
-        [strongSelf.navigationController pushViewController:viewController animated:YES];
+        [strongSelf pushNewWebControllerWithURL:destinationURL title:title];
         return nil;
-    } copy] forKey:@"pushViewControllerTitle"];
+    } copy] forKey:@"pushWebViewControllerTitle"];
     
 }
 
