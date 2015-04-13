@@ -9,6 +9,11 @@
 #ifndef WhatsTaste_DefineMacro_h
 #define WhatsTaste_DefineMacro_h
 
+/* 切换生产、开发环境 */
+#ifndef LOCAL_HTML
+//#define LOCAL_HTML
+#endif
+
 #define DEMO_HOST @"http://10.60.215.14"
 #define DEMO_JS (DEMO_HOST @"/js/OCCallJS.js")
 #define DEMO_HTML (DEMO_HOST @"/JSCallOC")

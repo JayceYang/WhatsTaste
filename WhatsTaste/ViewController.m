@@ -31,10 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-#if 0 // use server html
-//    NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:DEMO_HTML]];
-    [self.webView loadRequest:request];
+#ifdef LOCAL_HTML // use server html
+    self.destinationURL = [NSURL URLWithString:DEMO_HTML];
 #else
     NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
     self.destinationURL = [NSURL fileURLWithPath:path];
