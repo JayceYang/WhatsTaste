@@ -7,20 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */; };
-		28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */; };
-		28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */; };
-		28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */; };
-		28AFC90C1AD610E100A14BF8 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 28AFC90B1AD610E100A14BF8 /* test.js */; };
-		28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */; };
+		28D1906F1ADBC759004C8A2F /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 28D1906A1ADBC759004C8A2F /* JSCallOC.html */; };
+		28D190701ADBC759004C8A2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1906C1ADBC759004C8A2F /* ViewController.m */; };
+		28D190711ADBC759004C8A2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D1906D1ADBC759004C8A2F /* Main.storyboard */; };
+		28D190721ADBC759004C8A2F /* native_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 28D1906E1ADBC759004C8A2F /* native_bridge.js */; };
 		28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DB91ACD46ED00E11FB3 /* main.m */; };
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
 		28E88DD41ACD46ED00E11FB3 /* WhatsTasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */; };
 		EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */; };
 		EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6BE1181AD64E3E00A3A249 /* WebViewController.m */; };
-		EC828EEA1AD66D32000F352E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC828EE91AD66D32000F352E /* Main.storyboard */; };
-		F73267831AD7CB6D00F7AE0A /* native_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = F73267821AD7CB6D00F7AE0A /* native_bridge.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		28AFC8FA1AD60FEC00A14BF8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSCallOC.html; sourceTree = "<group>"; };
-		28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCallOCViewController.h; sourceTree = "<group>"; };
-		28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCallOCViewController.m; sourceTree = "<group>"; };
-		28AFC9031AD610C900A14BF8 /* OCCallJSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCallJSViewController.h; sourceTree = "<group>"; };
-		28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCCallJSViewController.m; sourceTree = "<group>"; };
-		28AFC90B1AD610E100A14BF8 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		28D1906A1ADBC759004C8A2F /* JSCallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSCallOC.html; sourceTree = "<group>"; };
+		28D1906B1ADBC759004C8A2F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		28D1906C1ADBC759004C8A2F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		28D1906D1ADBC759004C8A2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		28D1906E1ADBC759004C8A2F /* native_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = native_bridge.js; sourceTree = "<group>"; };
 		28E88DB41ACD46ED00E11FB3 /* WhatsTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DB81ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DB91ACD46ED00E11FB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,8 +48,6 @@
 		EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
 		EC6BE1171AD64E3E00A3A249 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EC6BE1181AD64E3E00A3A249 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		EC828EE91AD66D32000F352E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		F73267821AD7CB6D00F7AE0A /* native_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = native_bridge.js; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,28 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28AFC8FD1AD610C900A14BF8 /* JSCallOC */ = {
-			isa = PBXGroup;
-			children = (
-				F73267821AD7CB6D00F7AE0A /* native_bridge.js */,
-				EC828EE91AD66D32000F352E /* Main.storyboard */,
-				28AFC8FE1AD610C900A14BF8 /* JSCallOC.html */,
-				28AFC8FF1AD610C900A14BF8 /* JSCallOCViewController.h */,
-				28AFC9001AD610C900A14BF8 /* JSCallOCViewController.m */,
-			);
-			path = JSCallOC;
-			sourceTree = "<group>";
-		};
-		28AFC9021AD610C900A14BF8 /* OCCallJS */ = {
-			isa = PBXGroup;
-			children = (
-				28AFC90B1AD610E100A14BF8 /* test.js */,
-				28AFC9031AD610C900A14BF8 /* OCCallJSViewController.h */,
-				28AFC9041AD610C900A14BF8 /* OCCallJSViewController.m */,
-			);
-			path = OCCallJS;
-			sourceTree = "<group>";
-		};
 		28E88DAB1ACD46ED00E11FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -125,16 +92,15 @@
 			children = (
 				28E88DBB1ACD46ED00E11FB3 /* AppDelegate.h */,
 				28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */,
-				28AFC8FA1AD60FEC00A14BF8 /* ViewController.h */,
-				28AFC8FB1AD60FEC00A14BF8 /* ViewController.m */,
-				28AFC90D1AD615AF00A14BF8 /* DetailsViewController.h */,
-				28AFC90E1AD615AF00A14BF8 /* DetailsViewController.m */,
 				EC6BE1171AD64E3E00A3A249 /* WebViewController.h */,
 				EC6BE1181AD64E3E00A3A249 /* WebViewController.m */,
+				28D1906B1ADBC759004C8A2F /* ViewController.h */,
+				28D1906C1ADBC759004C8A2F /* ViewController.m */,
 				EC4022B71AD77BE000AC18A5 /* JavaScriptController.h */,
 				EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */,
-				28AFC8FD1AD610C900A14BF8 /* JSCallOC */,
-				28AFC9021AD610C900A14BF8 /* OCCallJS */,
+				28D1906D1ADBC759004C8A2F /* Main.storyboard */,
+				28D1906A1ADBC759004C8A2F /* JSCallOC.html */,
+				28D1906E1ADBC759004C8A2F /* native_bridge.js */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
 				28E88DB71ACD46ED00E11FB3 /* Supporting Files */,
 				F76143FD1AD667C1006313FA /* DefineMacro.h */,
@@ -248,11 +214,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AFC90C1AD610E100A14BF8 /* test.js in Resources */,
-				F73267831AD7CB6D00F7AE0A /* native_bridge.js in Resources */,
-				28AFC9061AD610C900A14BF8 /* JSCallOC.html in Resources */,
+				28D190711ADBC759004C8A2F /* Main.storyboard in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
-				EC828EEA1AD66D32000F352E /* Main.storyboard in Resources */,
+				28D190721ADBC759004C8A2F /* native_bridge.js in Resources */,
+				28D1906F1ADBC759004C8A2F /* JSCallOC.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,14 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AFC8FC1AD60FEC00A14BF8 /* ViewController.m in Sources */,
 				EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */,
-				28AFC9071AD610C900A14BF8 /* JSCallOCViewController.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
 				EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */,
-				28AFC90F1AD615AF00A14BF8 /* DetailsViewController.m in Sources */,
-				28AFC9091AD610C900A14BF8 /* OCCallJSViewController.m in Sources */,
 				28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */,
+				28D190701ADBC759004C8A2F /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"/>
 
-    <title>JSCallOC</title>
+    <title>Hybird</title>
 
     <style>
         *
@@ -59,18 +59,12 @@
     <center>
 
         <br/>
-        <input type="button" value="Native计算平方" onclick="calculateByNative(input.value);" />
+        <input type="button" value="JS调用Native计算平方" onclick="calculateByNative(input.value);" />
         <br/>
         <br/>
 
-        <!--            <br/>-->
-        <!--            <input type="button" value="获取Native值" onclick="DJI.getString();" />-->
-        <!--            <br/>-->
-        <!--            <br/>-->
-
-
-        <a id="push" href="#" onclick="pushWebViewControllerTitle('http://www.baidu.com','secondPushedFromJS');">
-            push to details ViewController
+        <a id="push" href="#" onclick="pushWebViewControllerTitle('http://www.baidu.com','百度一下');">
+            跳转到新页面
         </a>
 
         <br/>
@@ -108,17 +102,6 @@
             document.getElementById("result").innerText = resultNumber["squareValueResult"];
         }
 
-        function test_child(data_json,callback){
-            setTimeout(function(){
-                return callback(data_json);
-                //return window["native"][callback](data_json);
-            },2000);
-        }
-
-        var json_data = {
-            "name" : "lili",
-            "sex" : "man"
-        }
     </script>
 </body>
 
