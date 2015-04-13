@@ -13,8 +13,8 @@ function callback_to_native(callback, arguments, callbackPlus)
 //    document.getElementById("result").innerText = resultNumber;
 //}
 //
-//function jsSquare(number)
-//{
-//    resultNumber = number * number;
-//    document.getElementById("result").innerText = resultNumber
-//}
+function jsSquare(number)
+{
+    resultNumber = number * number;
+    document.getElementById("result").innerText = resultNumber
+}

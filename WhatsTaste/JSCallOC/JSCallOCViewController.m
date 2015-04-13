@@ -51,6 +51,13 @@
     NSNumber *inputNumber = [NSNumber numberWithInteger:[self.inputTextField.text integerValue]];
     JSValue *function = [self.context objectForKeyedSubscript:@"jsSquare"];
     [function callWithArguments:@[inputNumber]];
+    
+    [self.javaScriptController callJavaScriptMethod:@"changeInputFromNative" arguments:@{@"data": self.inputTextField.text} completionHandler:^(NSDictionary *arguments) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Web的内容已经改变了，并告知了我！" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alertView show];
+        NSLog(@"arguments:%@", arguments);
+        NSLog(@"Java script task ends");
+    }];
 #endif
 }
 
