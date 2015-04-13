@@ -36,16 +36,15 @@
 - (void)setupJavaScriptControllerTaskHandler {
     __weak typeof(self) weakSelf = self;
     
-    [self.javaScriptControllerTaskHandlerDictionary setObject:[^(NSDictionary *arguments) {
-        
+    [self.javaScriptControllerTaskHandlerDictionary setObject:[^NSDictionary * (NSDictionary *arguments) {
         __strong typeof(self) strongSelf = weakSelf;
-        NSInteger aRedValue = arc4random()%255;
-        NSInteger aGreenValue = arc4random()%255;
-        NSInteger aBlueValue = arc4random()%255;
-        UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
-        strongSelf.view.backgroundColor = randomColor;
-        
-    } copy] forKey:@"changeColor"];
+//        UIViewController* viewController = arguments[@"viewController"];
+        UIViewController* viewController = [[NSClassFromString(arguments[@"viewController"]) alloc] init];
+        NSString* title = arguments[@"title"];
+        viewController.title = title;
+        [strongSelf.navigationController pushViewController:viewController animated:YES];
+        return nil;
+    } copy] forKey:@"pushViewControllerTitle"];
     
 }
 

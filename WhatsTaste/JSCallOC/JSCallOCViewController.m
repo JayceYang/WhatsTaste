@@ -97,7 +97,7 @@
     JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
         __strong typeof(self) strongSelf = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+                
             NativeFunction nativeFunction = [self.javaScriptControllerTaskHandlerDictionary objectForKey:method];
             NSDictionary * returnValue = nativeFunction(arguments);
             
@@ -107,8 +107,11 @@
             NSLog(@"Native task ends");
             
             NSLog(@"Callback to java script");
-            if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
-                strongSelf.javaScriptController.completionHandlerToJavaScript(returnValue);
+            
+            if (returnValue) {
+                if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+                    strongSelf.javaScriptController.completionHandlerToJavaScript(returnValue);
+                }
             }
             
         });

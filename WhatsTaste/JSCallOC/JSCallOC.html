@@ -69,7 +69,7 @@
         <!--            <br/>-->
 
 
-        <a id="push" href="#" onclick="native.pushViewControllerTitle('DetailsViewController','secondPushedFromJS');">
+        <a id="push" href="#" onclick="pushViewControllerTitle('DetailsViewController','secondPushedFromJS');">
             push to details ViewController
         </a>
 
@@ -81,9 +81,9 @@
 
 <script type="text/javascript">
 
-        function pushViewControllerTitle(value)
+        function pushViewControllerTitle(viewController, title)
         {
-            call_native("calculate", {'squareValue': value}, '');
+            call_native("pushViewControllerTitle", {'viewController': viewController, 'title': title}, '');
         }
 
         function calculateByNative(value)
