@@ -91,7 +91,6 @@
         {
             document.getElementById("cal_for_native").innerText = value["calculate"] + " * " + value["calculate"];
             var result = value["calculate"] * value["calculate"];
-<!--            callback_to_native(nativeCallback, {"squareValueResult":result}, null);-->
             setTimeout(function()
             {
                 callback_to_native(nativeCallback, {"squareValueResult":result}, null);
