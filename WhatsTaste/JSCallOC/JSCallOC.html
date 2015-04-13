@@ -69,9 +69,9 @@
         <!--            <br/>-->
 
 
-<!--        <a id="push" href="#" onclick="native.pushViewControllerTitle('DetailsViewController','secondPushedFromJS');">-->
-<!--            push to details ViewController-->
-<!--        </a>-->
+        <a id="push" href="#" onclick="native.pushViewControllerTitle('DetailsViewController','secondPushedFromJS');">
+            push to details ViewController
+        </a>
 
         <br/>
         <br/>
@@ -80,6 +80,11 @@
 </div>
 
 <script type="text/javascript">
+
+        function pushViewControllerTitle(value)
+        {
+            call_native("calculate", {'squareValue': value}, '');
+        }
 
         function calculateByNative(value)
         {
@@ -102,14 +107,6 @@
         {
             document.getElementById("result").innerText = resultNumber["squareValueResult"];
         }
-    
-        function test(data,callback) {
-            var data_json = JSON.parse(data);
-            data_json.sex = "man";
-            native.alert("test function");
-            test_child(data_json,callback);
-            
-        }
 
         function test_child(data_json,callback){
             setTimeout(function(){
@@ -122,9 +119,6 @@
             "name" : "lili",
             "sex" : "man"
         }
-
-        native.getData(JSON.stringify(json_data));
-        native.alert("getData's"+native.getData(JSON.stringify(json_data)));
     </script>
 </body>
 
