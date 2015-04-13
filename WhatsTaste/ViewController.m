@@ -32,10 +32,10 @@
     // Do any additional setup after loading the view from its nib.
     
 #ifdef LOCAL_HTML // use server html
-    self.destinationURL = [NSURL URLWithString:DEMO_HTML];
-#else
     NSString *path = [[[NSBundle mainBundle] bundlePath]  stringByAppendingPathComponent:@"JSCallOC.html"];
     self.destinationURL = [NSURL fileURLWithPath:path];
+#else
+    self.destinationURL = [NSURL URLWithString:DEMO_HTML];
 #endif
 }
 
