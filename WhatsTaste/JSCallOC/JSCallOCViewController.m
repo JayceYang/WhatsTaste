@@ -54,6 +54,11 @@
 #endif
 }
 
+#pragma mark - private func
+- (float)calculate:(float) value {
+    return value * value;
+}
+
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -114,12 +119,14 @@
             NSLog(@"method:%@", method);
             NSLog(@"arguments:%@", arguments);
             NSLog(@"Native task ends");
+            
+            NSLog(@"Callback to java script");
+            if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+                strongSelf.javaScriptController.completionHandlerToJavaScript(@{@"squareValueResult" : [NSNumber numberWithFloat:[self calculate:[(NSNumber*)[arguments objectForKey:@"squareValue"] floatValue]]]});
+            }
+            
         });
         
-        NSLog(@"Callback to java script");
-        if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
-            strongSelf.javaScriptController.completionHandlerToJavaScript(arguments);
-        }
     }];
     self.javaScriptController = controller;
 }

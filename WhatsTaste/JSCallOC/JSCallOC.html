@@ -84,7 +84,7 @@
         function calculateByNative(value)
         {
             showResult("");
-            call_native("calculate", value, showResult);
+            call_native("calculate", {'squareValue': value}, showResult);
         }
 
         function calculateForNative(value, nativeCallback)
@@ -101,7 +101,7 @@
 
         function showResult(resultNumber)
         {
-            document.getElementById("result").innerText = resultNumber;
+            document.getElementById("result").innerText = resultNumber["squareValueResult"];
         }
     
         function test(data,callback) {
