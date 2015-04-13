@@ -32,7 +32,7 @@
 
     </style>
     
-    <script type="text/javascript" src="native_bridge.js" />
+    <script type="text/javascript" src="native_bridge.js"></script>
     <script type="text/javascript">
     
     function changeInputFromNative(arguments, callback)
@@ -40,14 +40,14 @@
         <!--        alert(arguments);-->
         document.getElementById("input").innerText = arguments["data"];
 <!--        callback({"result": arguments["data"]})-->
-        callbackToNative(callback, {"result": arguments["data"]}, '')
+        callbackToNative(callback, {"result": arguments["data"]}, '');
     }
     
     function changeColor()
     {
         callNative('changeColor', {'total': 1024}, function (data) {
                          changeColorCallback({'data': 'Native已变色，并告知了我！'})
-                         }, '')
+                   }, '');
 <!--        native.callNativeMethodArgumentsCompletionHandler('changeColor', {'total': 1024}, function (data) {-->
 <!--                                                          changeColorCallback({'data': 'Native已变色，并告知了我！'})-->
 <!--                                                          })-->
