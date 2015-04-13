@@ -11,6 +11,7 @@
 
 @interface JSCallOCViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+@property (weak, nonatomic) IBOutlet UILabel *jsCaculateResultLabel;
 
 @end
 

@@ -1,71 +1,132 @@
+
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"/>
-    
+
     <title>JSCallOC</title>
+
     <style>
         *
         {
-            //-webkit-tap-highlight-color: rgba(0,0,0,0);
-            text-decoration: none;
+        //-webkit-tap-highlight-color: rgba(0,0,0,0);
+        text-decoration: none;
         }
-    
+
         html,body
         {
-            -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-            -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-            -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+        -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+        -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
         }
-    
+
         #div-a
         {
-            background:#FBA;
-            color:#FFF;
-            border-radius: 15px 15px;
+        background:#FBA;
+        color:#FFF;
+
+        border-radius: 25px 5px;
         }
 
 
     </style>
-    
-    <script type="text/javascript" src="native_bridge.js"></script>
-    
+
+    <script src="native_bridge.js"></script>
+
 </head>
 
 <body style="background:#CDE; color:#FFF">
-    
-    <div>
-        <font size="3" color="black">输入一个整数：</font>
-        <input type ="text" id="input" style="font-size:10pt;color:black;"/>
-        <input type="button" value="计算阶乘" onclick="native.calculateForJS(input.value);" />
-    </div>
-    <br/>
-    
-    <div>
-        <font size="3" color="black">结果： <b id="result"> </b> </font>
-    </div>
-    <br/>
-    
-    <div id="div-a">
-        <center>
-            <br/>
-            <br/>
-            <input type="button" value="oc原生Alert" onclick="native.showAlert('Hello Hybrid');" />
-            <br/>
-            <br/>
-            <input type="button" value="addSubView" onclick="addSubView('view');" />
-            <br/>
-            <br/>
-            <a id="push" href="#" onclick="native.pushNewWebControllerWithURLTitle('http://www.baidu.com','Baidu');">
 
-                push to a new URL: Baidu
-            </a>
-            <br/>
-        </center>
-    </div>
+<div>
+    <font size="3" color="black">输入一个整数：</font>
+    <textarea  id="input" style="font-size:10pt;color:black;"></textarea>
+</div>
+<br/>
+
+<div>
+    <font size="3" color="green">Native计算结果： <b id="result"> </b> </font>
+</div>
+<br/>
+
+<div>
+    <font size="3" color="blue">正在为Native计算： <b id="cal_for_native"> </b> </font>
+</div>
+<br/>
+
+<div id="div-a">
+    <center>
+
+        <br/>
+        <input type="button" value="Native计算平方" onclick="calculateByNative(input.value);" />
+        <br/>
+        <br/>
+
+        <!--            <br/>-->
+        <!--            <input type="button" value="获取Native值" onclick="DJI.getString();" />-->
+        <!--            <br/>-->
+        <!--            <br/>-->
+
+
+<!--        <a id="push" href="#" onclick="native.pushViewControllerTitle('DetailsViewController','secondPushedFromJS');">-->
+<!--            push to details ViewController-->
+<!--        </a>-->
+
+        <br/>
+        <br/>
+
+    </center>
+</div>
+
+<script type="text/javascript">
+
+        function calculateByNative(value)
+        {
+            showResult("");
+            call_native("calculate", value, showResult);
+        }
+
+        function calculateForNative(value, nativeCallback)
+        {
+            document.getElementById("cal_for_native").innerText = value + " * " + value;
+            var result = value * value;
+            setTimeout(function()
+            {
+                jsAlert("nativeCallback is " + nativeCallback);
+                callback_to_native(nativeCallback, result, null);
+                document.getElementById("cal_for_native").innerText = "";
+            },1000);
+        }
+
+        function showResult(resultNumber)
+        {
+            document.getElementById("result").innerText = resultNumber;
+        }
     
+        function test(data,callback) {
+            var data_json = JSON.parse(data);
+            data_json.sex = "man";
+            native.alert("test function");
+            test_child(data_json,callback);
+            
+        }
+
+        function test_child(data_json,callback){
+            setTimeout(function(){
+                return callback(data_json);
+                //return window["native"][callback](data_json);
+            },2000);
+        }
+
+        var json_data = {
+            "name" : "lili",
+            "sex" : "man"
+        }
+
+        native.getData(JSON.stringify(json_data));
+        native.alert("getData's"+native.getData(JSON.stringify(json_data)));
+    </script>
 </body>
 
 </html>
