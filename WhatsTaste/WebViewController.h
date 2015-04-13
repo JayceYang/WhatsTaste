@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "JavaScriptController.h"
 
 @protocol WebViewControllerExport<JSExport>
 
@@ -21,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (copy, nonatomic) NSURL *destinationURL;
 @property (strong, nonatomic) JSContext *context;
-
+@property (strong, nonatomic) JavaScriptController * javaScriptController;
 
 - (void)pushNewWebControllerWithURL:(NSString *)urlString title:(NSString *)title;
 

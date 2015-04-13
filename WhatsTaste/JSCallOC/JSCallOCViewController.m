@@ -58,34 +58,58 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [super webViewDidFinishLoad:webView];
+//    [super webViewDidFinishLoad:webView];
+//    
+//    // 以 html title 设置 导航栏 title
+//    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//    
+//    // 打印异常
+//    self.context.exceptionHandler =
+//    ^(JSContext *context, JSValue *exceptionValue)
+//    {
+//        context.exception = exceptionValue;
+//        NSLog(@"%@", exceptionValue);
+//    };
+//    
+//    // 以 JSExport 协议关联 native 的方法
+//    self.context[@"native"] = self;
+//    
+//    // 以 block 形式关联 JavaScript function    
+//    __block typeof(self) weakSelf = self;
+//    self.context[@"addSubView"] =
+//    ^(NSString *viewname)
+//    {
+//        CGRect frame = weakSelf.view.frame;
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
+//        view.backgroundColor = [UIColor redColor];
+//        UISwitch *sw = [[UISwitch alloc]init];
+//        [view addSubview:sw];
+//        [weakSelf.view addSubview:view];
+//    };
     
-    // 以 html title 设置 导航栏 title
-    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    
-    // 打印异常
-    self.context.exceptionHandler =
-    ^(JSContext *context, JSValue *exceptionValue)
-    {
-        context.exception = exceptionValue;
-        NSLog(@"%@", exceptionValue);
-    };
-    
-    // 以 JSExport 协议关联 native 的方法
-    self.context[@"native"] = self;
-    
-    // 以 block 形式关联 JavaScript function    
-    __block typeof(self) weakSelf = self;
-    self.context[@"addSubView"] =
-    ^(NSString *viewname)
-    {
-        CGRect frame = weakSelf.view.frame;
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 44, frame.size.width, 44)];
-        view.backgroundColor = [UIColor redColor];
-        UISwitch *sw = [[UISwitch alloc]init];
-        [view addSubview:sw];
-        [weakSelf.view addSubview:view];
-    };
+    __weak typeof(self) weakSelf = self;
+    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
+        __strong typeof(self) strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([method isEqualToString:@"changeColor"]) {
+                NSInteger aRedValue = arc4random()%255;
+                NSInteger aGreenValue = arc4random()%255;
+                NSInteger aBlueValue = arc4random()%255;
+                UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
+                strongSelf.nativeView.backgroundColor = randomColor;
+            }
+            NSLog(@"Native task begins");
+            NSLog(@"method:%@", method);
+            NSLog(@"arguments:%@", arguments);
+            NSLog(@"Native task ends");
+        });
+        
+        NSLog(@"Callback to java script");
+        if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+            strongSelf.javaScriptController.completionHandlerToJavaScript(arguments);
+        }
+    }];
+    self.javaScriptController = controller;
 }
 
 #pragma mark - JSExport Methods
