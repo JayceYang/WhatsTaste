@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.javaScriptControllerTaskHandlerDictionary = [NSMutableDictionary dictionary];
+    
+    [self setupJavaScriptControllerTaskHandler];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -29,6 +31,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Functions
+
+- (void)setupJavaScriptControllerTaskHandler {
+    __weak typeof(self) weakSelf = self;
+    
+    [self.javaScriptControllerTaskHandlerDictionary setObject:[^(NSDictionary *arguments) {
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        NSInteger aRedValue = arc4random()%255;
+        NSInteger aGreenValue = arc4random()%255;
+        NSInteger aBlueValue = arc4random()%255;
+        UIColor *randomColor = [UIColor colorWithRed:aRedValue/255.0f green:aGreenValue/255.0f blue:aBlueValue/255.0f alpha:1.0f];
+        strongSelf.view.backgroundColor = randomColor;
+        
+    } copy] forKey:@"changeColor"];
+    
+}
 
 #pragma mark - JS methods
 

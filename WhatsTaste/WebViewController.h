@@ -10,6 +10,8 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "JavaScriptController.h"
 
+typedef NSDictionary * (^NativeFunction)(NSDictionary *arguments);
+
 @protocol WebViewControllerExport<JSExport>
 
 - (void)pushNewWebControllerWithURL:(NSString *)urlString title:(NSString *)title;
@@ -23,7 +25,9 @@
 @property (copy, nonatomic) NSURL *destinationURL;
 @property (strong, nonatomic) JSContext *context;
 @property (strong, nonatomic) JavaScriptController * javaScriptController;
+@property (strong, nonatomic) NSMutableDictionary *javaScriptControllerTaskHandlerDictionary;
 
 - (void)pushNewWebControllerWithURL:(NSString *)urlString title:(NSString *)title;
+- (void)setupJavaScriptControllerTaskHandler;
 
 @end
