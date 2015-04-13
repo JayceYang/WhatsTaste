@@ -15,6 +15,7 @@
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
 		28E88DD41ACD46ED00E11FB3 /* WhatsTasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */; };
+		F7F1AD451ADB5A2A00BD2DA8 /* native_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = F7F1AD441ADB5A2A00BD2DA8 /* native_bridge.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		28E88DD21ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsTasteTests.m; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
+		F7F1AD441ADB5A2A00BD2DA8 /* native_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = native_bridge.js; path = ../../Desktop/native_bridge.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		28E88DB61ACD46ED00E11FB3 /* WhatsTaste */ = {
 			isa = PBXGroup;
 			children = (
+				F7F1AD441ADB5A2A00BD2DA8 /* native_bridge.js */,
 				28AFC8F81AD60F9A00A14BF8 /* Main.storyboard */,
 				28E88DBB1ACD46ED00E11FB3 /* AppDelegate.h */,
 				28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */,
@@ -208,6 +211,7 @@
 			files = (
 				28AFC8F91AD60F9A00A14BF8 /* Main.storyboard in Resources */,
 				28BDEE641AD768DB003650FE /* sample.html in Resources */,
+				F7F1AD451ADB5A2A00BD2DA8 /* native_bridge.js in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
