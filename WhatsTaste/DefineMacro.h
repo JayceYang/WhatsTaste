@@ -18,4 +18,11 @@
 #define DEMO_JS (DEMO_HOST @"/js/OCCallJS.js")
 #define DEMO_HTML (DEMO_HOST @"/JSCallOC")
 
+typedef NS_ENUM(NSInteger, BridgeErrorCode) {
+    BridgeErrorCodeUndefined                                      = - 1,
+    BridgeErrorCodeSuccess                                        = 0,
+    BridgeErrorCodeNativeMethodNotExist                           = 1,
+    BridgeErrorCodeJSMethodNotExist                               = 2,
+};
+
 #endif
