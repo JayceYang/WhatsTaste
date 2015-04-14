@@ -103,7 +103,9 @@
         [invocation setTarget:self.webViewController];
         [invocation setSelector:destSelector];
         [invocation setArgument:&arguments atIndex:2];
-        [invocation setArgument:&jsCompletionHandler atIndex:3];
+        if (jsCompletionHandler) {
+            [invocation setArgument:&jsCompletionHandler atIndex:3];            
+        }
         NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithInvocation:invocation];
         [[NSOperationQueue mainQueue] addOperation:operation];
     }

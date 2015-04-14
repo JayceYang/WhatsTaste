@@ -3,6 +3,11 @@ function call_native(method, arguments, callback)
     native.callNativeMethodArgumentsCompletionHandler(method, arguments, callback);
 }
 
+function call_native(method, arguments)
+{
+    native.callNativeMethodArguments(method, arguments);
+}
+
 function callback_to_native(callback, arguments, callbackPlus)
 {
     alert(callback)
