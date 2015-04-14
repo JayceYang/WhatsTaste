@@ -94,6 +94,10 @@
         SEL destSelector = NSSelectorFromString([NSString stringWithFormat:@"%@:completionHandlerToJavaScript:", method]);
         NSMethodSignature *methodSegnature = [[self.webViewController class] instanceMethodSignatureForSelector:destSelector];
         if (!methodSegnature) {
+            destSelector = NSSelectorFromString([NSString stringWithFormat:@"%@:", method]);
+            methodSegnature = [[self.webViewController class] instanceMethodSignatureForSelector:destSelector];
+        }
+        if (!methodSegnature) {
             if (jsCompletionHandler) {
                 jsCompletionHandler(@{@"error": [NSString stringWithFormat:@"There is no %@ method in native", method]});
             }

@@ -12,14 +12,7 @@
 
 typedef NSDictionary * (^NativeFunction)(NSDictionary *arguments);
 
-@protocol WebViewControllerExport<JSExport>
-
-- (void)pushNewWebControllerWithURL:(NSString *)urlString title:(NSString *)title;
-
-@end
-
-
-@interface WebViewController : UIViewController <UIWebViewDelegate, WebViewControllerExport>
+@interface WebViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (copy, nonatomic) NSURL *destinationURL;
@@ -27,7 +20,8 @@ typedef NSDictionary * (^NativeFunction)(NSDictionary *arguments);
 @property (strong, nonatomic) JavaScriptController * javaScriptController;
 @property (strong, nonatomic) NSMutableDictionary *javaScriptControllerTaskHandlerDictionary;
 
-- (void)pushNewWebControllerWithURL:(NSString *)urlString title:(NSString *)title;
-- (void)setupJavaScriptControllerTaskHandler;
+#pragma mark - JS methods
+
+- (void)pushWebViewController:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler;
 
 @end

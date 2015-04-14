@@ -81,26 +81,6 @@
     
     // Undocumented access to UIWebView's JSContext
     JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    
-//    __weak typeof(self) weakSelf = self;
-//    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
-//        __strong typeof(self) strongSelf = weakSelf;
-//        NativeFunction nativeFunction = [strongSelf.javaScriptControllerTaskHandlerDictionary objectForKey:method];
-//        NSDictionary *returnValue = nativeFunction(arguments);
-//        
-//        NSLog(@"Native task begins");
-//        NSLog(@"method:%@", method);
-//        NSLog(@"arguments:%@", arguments);
-//        NSLog(@"Native task ends");
-//        
-//        NSLog(@"Callback to java script");
-//        
-//        if (returnValue) {
-//            if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
-//                strongSelf.javaScriptController.completionHandlerToJavaScript(returnValue);
-//            }
-//        }
-//    }];
     JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context webViewController:self];
     self.javaScriptController = controller;
 }

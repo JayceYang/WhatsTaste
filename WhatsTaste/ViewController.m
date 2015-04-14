@@ -61,19 +61,6 @@
 #endif
 }
 
-#pragma mark - private func
-- (void)setupJavaScriptControllerTaskHandler {
-    [super setupJavaScriptControllerTaskHandler];
-    
-    [self.javaScriptControllerTaskHandlerDictionary setObject:[ ^NSDictionary *(NSDictionary *arguments) {
-        
-        float inputValue = [(NSNumber*)[arguments objectForKey:@"squareValue"] floatValue];
-        return @{@"squareValueResult" : [NSNumber numberWithFloat:inputValue * inputValue]};
-        
-    } copy] forKey:@"calculate"];
-    
-}
-
 #pragma mark - JS methods
 
 - (void)calculate:(NSDictionary *)arguments completionHandlerToJavaScript:(JavaScriptControllerCompletionHandler)completionHandler {
