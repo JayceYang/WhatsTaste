@@ -16,9 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.javaScriptControllerTaskHandlerDictionary = [NSMutableDictionary dictionary];
-    
-    [self setupJavaScriptControllerTaskHandler];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -29,23 +26,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Functions
-
-- (void)setupJavaScriptControllerTaskHandler {
-    __weak typeof(self) weakSelf = self;
-    
-    [self.javaScriptControllerTaskHandlerDictionary setObject:[^NSDictionary * (NSDictionary *arguments) {
-        __strong typeof(self) strongSelf = weakSelf;
-        UIViewController* viewController = [[NSClassFromString(arguments[@"viewController"]) alloc] init];//这个地方以后安卓和iOScontroller所对应的类名可能不一样，arguments[@"viewController"]获取的应该只是一个类所对应的映射值
-        NSString *destinationURL = arguments[@"destinationURL"];
-        NSString *title = arguments[@"title"];
-        viewController.title = title;
-        [strongSelf pushNewWebControllerWithURL:destinationURL title:title];
-        return nil;
-    } copy] forKey:@"pushWebViewControllerTitle"];
-    
 }
 
 /*
