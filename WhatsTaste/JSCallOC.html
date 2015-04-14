@@ -63,7 +63,7 @@
         <br/>
         <br/>
 
-        <a id="push" href="#" onclick="pushWebViewControllerTitle('http://www.baidu.com','百度一下');">
+        <a id="push" href="#" onclick="pushWebViewController('http://www.baidu.com','百度一下');">
             跳转到新页面
         </a>
 
@@ -75,9 +75,9 @@
 
 <script type="text/javascript">
 
-        function pushWebViewControllerTitle(destinationURL, title)
+        function pushWebViewController(destinationURL, title)
         {
-            call_native("pushWebViewControllerTitle", {'destinationURL': destinationURL, 'title': title}, null);
+            call_native("pushWebViewController", {'destinationURL': destinationURL, 'title': title});
         }
 
         function calculateByNative(value)

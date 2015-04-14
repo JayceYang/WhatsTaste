@@ -10,15 +10,6 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "WebViewController.h"
 
-@protocol TestJSExport<JSExport>
-JSExportAs
-(calculateForJS  /** handleFactorialCalculateWithNumber 作为js方法的别名 */,
- - (void)handleFactorialCalculateWithNumber:(NSNumber *)number
- );
+@interface ViewController : WebViewController
 
-@end
-
-
-
-@interface ViewController : WebViewController<TestJSExport>
 @end

@@ -74,34 +74,14 @@
     
 }
 
-#pragma mark - JSExport Methods
+#pragma mark - JS methods
 
-- (void)handleFactorialCalculateWithNumber:(NSNumber *)number {
-    NSLog(@"%@", number);
-    NSNumber *result = [self calculateFactorialOfNumber:number];
-    NSLog(@"%@", result);
-    [self.context[@"updateResult"] callWithArguments:@[result]];
-}
-
-#pragma mark - Factorial Method
-
-- (NSNumber *)calculateFactorialOfNumber:(NSNumber *)number
-{
-    NSInteger i = [number integerValue];
-    if (i < 0)
-    {
-        return [NSNumber numberWithInteger:0];
+- (void)calculate:(NSDictionary *)arguments completionHandlerToJavaScript:(JavaScriptControllerCompletionHandler)completionHandler {
+    float inputValue = [(NSNumber*)[arguments objectForKey:@"squareValue"] floatValue];
+    NSDictionary *resultDictionary = @{@"squareValueResult" : [NSNumber numberWithFloat:inputValue * inputValue]};
+    if (completionHandler) {
+        completionHandler(resultDictionary);
     }
-    if (i == 0)
-    {
-        return [NSNumber numberWithInteger:1];
-    }
-    
-    NSInteger r = (i * [(NSNumber *)[self calculateFactorialOfNumber:[NSNumber numberWithInteger:(i - 1)]] integerValue]);
-    
-    return [NSNumber numberWithInteger:r];
 }
-
-
 
 @end

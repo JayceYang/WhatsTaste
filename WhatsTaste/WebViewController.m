@@ -48,15 +48,6 @@
     
 }
 
-#pragma mark - JS methods
-
-- (void)pushNewWebControllerWithURL:(NSString *)urlString title:(NSString *)title {
-    WebViewController *newWebController =[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WebViewController"];
-    newWebController.destinationURL = [NSURL URLWithString:urlString];
-    newWebController.title = title;
-    [self.navigationController pushViewController:newWebController animated:YES];
-}
-
 /*
 #pragma mark - Navigation
 
@@ -91,30 +82,47 @@
     // Undocumented access to UIWebView's JSContext
     JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
-    __weak typeof(self) weakSelf = self;
-    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
-        __strong typeof(self) strongSelf = weakSelf;
-        NativeFunction nativeFunction = [strongSelf.javaScriptControllerTaskHandlerDictionary objectForKey:method];
-        NSDictionary *returnValue = nativeFunction(arguments);
-        
-        NSLog(@"Native task begins");
-        NSLog(@"method:%@", method);
-        NSLog(@"arguments:%@", arguments);
-        NSLog(@"Native task ends");
-        
-        NSLog(@"Callback to java script");
-        
-        if (returnValue) {
-            if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
-                strongSelf.javaScriptController.completionHandlerToJavaScript(returnValue);
-            }
-        }
-    }];
+//    __weak typeof(self) weakSelf = self;
+//    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context taskHandler:^(NSString *method, NSDictionary *arguments) {
+//        __strong typeof(self) strongSelf = weakSelf;
+//        NativeFunction nativeFunction = [strongSelf.javaScriptControllerTaskHandlerDictionary objectForKey:method];
+//        NSDictionary *returnValue = nativeFunction(arguments);
+//        
+//        NSLog(@"Native task begins");
+//        NSLog(@"method:%@", method);
+//        NSLog(@"arguments:%@", arguments);
+//        NSLog(@"Native task ends");
+//        
+//        NSLog(@"Callback to java script");
+//        
+//        if (returnValue) {
+//            if (strongSelf.javaScriptController.completionHandlerToJavaScript) {
+//                strongSelf.javaScriptController.completionHandlerToJavaScript(returnValue);
+//            }
+//        }
+//    }];
+    JavaScriptController *controller = [JavaScriptController javaScriptControllerWithContext:context webViewController:self];
     self.javaScriptController = controller;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Load webview with error: %@", error);
+}
+
+
+#pragma mark - JS methods
+
+- (void)pushWebViewController:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler {
+    NSString *destinationURL = arguments[@"destinationURL"];
+    NSString *title = arguments[@"title"];
+    
+    WebViewController *newWebController =[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WebViewController"];
+    newWebController.destinationURL = [NSURL URLWithString:destinationURL];
+    newWebController.title = title;
+    [self.navigationController pushViewController:newWebController animated:YES];
+    if (completionHandler) {
+        completionHandler(nil);
+    }
 }
 
 @end

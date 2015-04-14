@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DJI. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
@@ -22,12 +23,12 @@ typedef void (^JavaScriptControllerCompletionHandler)(NSDictionary *arguments);
 @interface JavaScriptController : NSObject <JavaScriptControllerJSExport>
 
 @property (readonly, strong, nonatomic) JSContext *context;
-@property (readonly, copy, nonatomic) JavaScriptControllerCompletionHandler completionHandlerToJavaScript;
+@property (weak, nonatomic) UIViewController *webViewController;
 
 /*
  The taskHandler will perform on main thread
  */
-+ (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler;
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context webViewController:(UIViewController *)webViewController;
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments;
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler;
 

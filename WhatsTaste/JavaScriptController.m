@@ -7,12 +7,11 @@
 //
 
 #import "JavaScriptController.h"
+#import "WebViewController.h"
 
 @interface JavaScriptController ()
 
 @property (strong, nonatomic) JSContext *context;
-@property (copy, nonatomic) JavaScriptControllerTaskHandler taskHandler;
-@property (copy, nonatomic) JavaScriptControllerCompletionHandler completionHandlerToJavaScript;
 
 @end
 
@@ -23,19 +22,18 @@
     if (self) {
         // Initialization code
         self.context = nil;
-        self.taskHandler = nil;
-        self.completionHandlerToJavaScript = nil;
+        self.webViewController = nil;
     }
     return self;
 }
 
 #pragma mark - Public
 
-+ (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler {
-    return [self javaScriptControllerWithContext:context taskHandler:taskHandler completionHandler:nil];
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context webViewController:(UIViewController *)webViewController {
+    return [self javaScriptControllerWithContext:context webViewController:webViewController completionHandler:nil];
 }
 
-+ (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
++ (instancetype)javaScriptControllerWithContext:(JSContext *)context webViewController:(UIViewController *)webViewController completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
     JavaScriptController *controller = [[JavaScriptController alloc] init];
     controller.context = context;
     controller.context[@"native"] = controller;
@@ -48,8 +46,7 @@
     NSString *scriptCode = [NSString stringWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:NULL];
     [controller.context evaluateScript:scriptCode];
     
-    controller.taskHandler = taskHandler;
-    controller.completionHandlerToJavaScript = completionHandler;
+    controller.webViewController = webViewController;
     return controller;
 }
 
@@ -84,30 +81,31 @@
 //    NSLog(@"arguments:%@", arguments);
 //    NSLog(@"completionHandler:%@", completionHandler);
     if (method.length > 0) {
-        
-        // Save completion handler first
-        self.completionHandlerToJavaScript = ^(NSDictionary *arguments) {
-            NSMutableArray *safeArguments = [@[] mutableCopy];
-            if (arguments) {
-                [safeArguments addObject:arguments];
-            }
-            if (completionHandler) {
-                [safeArguments addObject:completionHandler];
-            }
-            [completionHandler callWithArguments:@[arguments]];
-        };
-        
-        if ([NSThread isMainThread]) {
-            if (self.taskHandler) {
-                self.taskHandler(method, arguments);
-            }
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.taskHandler) {
-                    self.taskHandler(method, arguments);
+        JavaScriptControllerCompletionHandler jsCompletionHandler;
+        if (completionHandler) {
+            jsCompletionHandler = ^(NSDictionary *arguments) {
+                NSMutableArray *safeArguments = [@[] mutableCopy];
+                if (arguments) {
+                    [safeArguments addObject:arguments];
                 }
-            });
+                [completionHandler callWithArguments:safeArguments];
+            };
         }
+        SEL destSelector = NSSelectorFromString([NSString stringWithFormat:@"%@:completionHandlerToJavaScript:", method]);
+        NSMethodSignature *methodSegnature = [[self.webViewController class] instanceMethodSignatureForSelector:destSelector];
+        if (!methodSegnature) {
+            if (jsCompletionHandler) {
+                jsCompletionHandler(@{@"error": [NSString stringWithFormat:@"There is no %@ method in native", method]});
+            }
+            return;
+        }
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSegnature];
+        [invocation setTarget:self.webViewController];
+        [invocation setSelector:destSelector];
+        [invocation setArgument:&arguments atIndex:2];
+        [invocation setArgument:&jsCompletionHandler atIndex:3];
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithInvocation:invocation];
+        [[NSOperationQueue mainQueue] addOperation:operation];
     }
 }
 
