@@ -18,6 +18,7 @@ typedef NSDictionary * (^NativeFunction)(NSDictionary *arguments);
 @property (copy, nonatomic) NSURL *destinationURL;
 @property (strong, nonatomic) JSContext *context;
 @property (strong, nonatomic) JavaScriptController * javaScriptController;
+
 #pragma mark - JS methods
 
 - (void)pushWebViewController:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler;

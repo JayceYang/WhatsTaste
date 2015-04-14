@@ -30,10 +30,6 @@
 #pragma mark - Public
 
 + (instancetype)javaScriptControllerWithContext:(JSContext *)context webViewController:(UIViewController *)webViewController {
-    return [self javaScriptControllerWithContext:context webViewController:webViewController completionHandler:nil];
-}
-
-+ (instancetype)javaScriptControllerWithContext:(JSContext *)context webViewController:(UIViewController *)webViewController completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
     JavaScriptController *controller = [[JavaScriptController alloc] init];
     controller.context = context;
     controller.context[@"native"] = controller;
@@ -45,7 +41,6 @@
     NSURL *URL = [[NSBundle mainBundle] URLForResource:@"native_bridge" withExtension:@"js"];
     NSString *scriptCode = [NSString stringWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:NULL];
     [controller.context evaluateScript:scriptCode];
-    
     controller.webViewController = webViewController;
     return controller;
 }
@@ -59,6 +54,10 @@
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler {
     if (method.length > 0) {
         JSValue *function = [self.context objectForKeyedSubscript:method];
+        if ([function.toString isEqualToString:@"undefined"]) {
+            completionHandler(@{@"error": [NSString stringWithFormat:@"No JS method: %@", method]});
+            return;
+        }
         NSMutableArray *safeArguments = [@[] mutableCopy];
         if (arguments) {
             [safeArguments addObject:arguments];
@@ -77,9 +76,6 @@
 }
 
 - (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler {
-//    NSLog(@"method:%@", method);
-//    NSLog(@"arguments:%@", arguments);
-//    NSLog(@"completionHandler:%@", completionHandler);
     if (method.length > 0) {
         JavaScriptControllerCompletionHandler jsCompletionHandler;
         if (completionHandler) {
