@@ -24,6 +24,9 @@ typedef void (^JavaScriptControllerCompletionHandler)(NSDictionary *arguments);
 @property (readonly, strong, nonatomic) JSContext *context;
 @property (readonly, copy, nonatomic) JavaScriptControllerCompletionHandler completionHandlerToJavaScript;
 
+/*
+ The taskHandler will perform on main thread
+ */
 + (instancetype)javaScriptControllerWithContext:(JSContext *)context taskHandler:(JavaScriptControllerTaskHandler)taskHandler;
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments;
 - (void)callJavaScriptMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JavaScriptControllerCompletionHandler)completionHandler;

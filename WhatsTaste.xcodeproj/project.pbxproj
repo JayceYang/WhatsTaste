@@ -98,12 +98,12 @@
 				28D1906C1ADBC759004C8A2F /* ViewController.m */,
 				EC4022B71AD77BE000AC18A5 /* JavaScriptController.h */,
 				EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */,
+				F76143FD1AD667C1006313FA /* DefineMacro.h */,
 				28D1906D1ADBC759004C8A2F /* Main.storyboard */,
 				28D1906A1ADBC759004C8A2F /* JSCallOC.html */,
 				28D1906E1ADBC759004C8A2F /* native_bridge.js */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
 				28E88DB71ACD46ED00E11FB3 /* Supporting Files */,
-				F76143FD1AD667C1006313FA /* DefineMacro.h */,
 			);
 			path = WhatsTaste;
 			sourceTree = "<group>";

@@ -40,7 +40,7 @@
 }
 
 - (IBAction)nativeCallJS:(UIButton *)sender {
-    NSLog(@"native call js");
+    NSLog(@"Native call JS");
     // Both ways work well.
 #if 0
     [self.context evaluateScript:[NSString stringWithFormat:@"jsSquare(%@)", @(self.inputTextField.text.integerValue)]];

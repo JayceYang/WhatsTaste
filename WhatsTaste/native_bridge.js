@@ -5,5 +5,6 @@ function call_native(method, arguments, callback)
 
 function callback_to_native(callback, arguments, callbackPlus)
 {
-    callback(arguments, callbackPlus);
+    alert(callback)
+    callback(arguments);
 }

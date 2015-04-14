@@ -97,8 +97,16 @@
             [completionHandler callWithArguments:@[arguments]];
         };
         
-        if (self.taskHandler) {
-            self.taskHandler(method, arguments);
+        if ([NSThread isMainThread]) {
+            if (self.taskHandler) {
+                self.taskHandler(method, arguments);
+            }
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.taskHandler) {
+                    self.taskHandler(method, arguments);
+                }
+            });
         }
     }
 }

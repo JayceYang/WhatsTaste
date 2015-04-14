@@ -11,7 +11,7 @@
 
 /* 切换生产、开发环境 */
 #ifndef LOCAL_HTML
-//#define LOCAL_HTML
+#define LOCAL_HTML
 #endif
 
 #define DEMO_HOST @"http://10.60.215.14"
