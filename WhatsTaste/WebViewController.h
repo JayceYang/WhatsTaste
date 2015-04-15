@@ -23,4 +23,8 @@ typedef NSDictionary * (^NativeFunction)(NSDictionary *arguments);
 
 - (void)pushWebViewController:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler;
 
+- (void)getPlatformInfomation:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler;
+
+- (void)imagePicker:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler;
+
 @end

@@ -97,4 +97,9 @@
     info[@"DeviceName"] = [DeviceHardware platformString];
     completionHandler(info);
 }
+
+- (void)imagePicker:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler {
+    
+}
+
 @end
