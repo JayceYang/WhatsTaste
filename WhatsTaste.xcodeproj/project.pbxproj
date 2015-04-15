@@ -17,6 +17,7 @@
 		28E88DD41ACD46ED00E11FB3 /* WhatsTasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */; };
 		EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */; };
 		EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6BE1181AD64E3E00A3A249 /* WebViewController.m */; };
+		ECFD3E671ADE38A10099BCC2 /* DeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
 		EC6BE1171AD64E3E00A3A249 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EC6BE1181AD64E3E00A3A249 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		ECFD3E651ADE38A10099BCC2 /* DeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHardware.h; sourceTree = "<group>"; };
+		ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHardware.m; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +93,8 @@
 		28E88DB61ACD46ED00E11FB3 /* WhatsTaste */ = {
 			isa = PBXGroup;
 			children = (
+				ECFD3E651ADE38A10099BCC2 /* DeviceHardware.h */,
+				ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */,
 				28E88DBB1ACD46ED00E11FB3 /* AppDelegate.h */,
 				28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */,
 				EC6BE1171AD64E3E00A3A249 /* WebViewController.h */,
@@ -236,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */,
+				ECFD3E671ADE38A10099BCC2 /* DeviceHardware.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
 				EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */,
 				28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */,
