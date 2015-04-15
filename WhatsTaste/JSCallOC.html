@@ -62,6 +62,10 @@
         <input type="button" value="JS调用Native计算平方" onclick="calculateByNative(input.value);" />
         <br/>
         <br/>
+        
+        <input type="button" value="JS获取platform info." onclick="getPlatformInfomation()" />
+        <br/>
+        <br/>
 
         <a id="push" href="#" onclick="pushWebViewController('http://www.baidu.com','百度一下');">
             跳转到新页面
@@ -74,6 +78,12 @@
 </div>
 
 <script type="text/javascript">
+    
+    function getPlatformInfomation() {
+        call_native("getPlatformInfomation", {}, function(infoDict) {
+                    document.getElementById("result").innerText = infoDict['SystemName'] + " " + infoDict['SystemVersion'] + " " + infoDict['DeviceName'];
+        });
+    }
 
         function pushWebViewController(destinationURL, title)
         {

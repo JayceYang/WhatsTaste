@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "DeviceHardware.h"
 
 @interface WebViewController ()
 
@@ -85,4 +86,15 @@
     }
 }
 
+- (void)getPlatformInfomation:(NSDictionary *)arguments completionHandlerToJavaScript:(void (^)(NSDictionary *))completionHandler {
+    if (!completionHandler) {
+        return;
+    }
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    info[@"SystemName"] = [UIDevice currentDevice].systemName;
+    info[@"SystemVersion"] = [UIDevice currentDevice].systemVersion;
+    info[@"Scale"] = [NSString stringWithFormat:@"%f", [UIScreen mainScreen].scale];
+    info[@"DeviceName"] = [DeviceHardware platformString];
+    completionHandler(info);
+}
 @end
