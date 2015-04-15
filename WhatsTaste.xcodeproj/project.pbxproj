@@ -18,6 +18,7 @@
 		EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */; };
 		EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6BE1181AD64E3E00A3A249 /* WebViewController.m */; };
 		ECFD3E671ADE38A10099BCC2 /* DeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */; };
+		F7F1AD4A1ADE3FD100BD2DA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F1AD491ADE3FD100BD2DA8 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		ECFD3E651ADE38A10099BCC2 /* DeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHardware.h; sourceTree = "<group>"; };
 		ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHardware.m; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
+		F7F1AD491ADE3FD100BD2DA8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F1AD4A1ADE3FD100BD2DA8 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +78,7 @@
 		28E88DAB1ACD46ED00E11FB3 = {
 			isa = PBXGroup;
 			children = (
+				F7F1AD491ADE3FD100BD2DA8 /* CoreLocation.framework */,
 				28E88DB61ACD46ED00E11FB3 /* WhatsTaste */,
 				28E88DD01ACD46ED00E11FB3 /* WhatsTasteTests */,
 				28E88DB51ACD46ED00E11FB3 /* Products */,

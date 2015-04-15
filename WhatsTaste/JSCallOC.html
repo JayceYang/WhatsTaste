@@ -29,6 +29,11 @@
 
         border-radius: 25px 5px;
         }
+    
+        div,p
+        {
+            color:#EEE;
+        }
 
 
     </style>
@@ -57,7 +62,7 @@
 
 <div id="div-a">
     <center>
-
+        <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" onclick="calculateByNative(input.value);" />
         <br/>
         <input type="button" value="JS调用Native计算平方" onclick="calculateByNative(input.value);" />
         <br/>
@@ -73,11 +78,27 @@
     </center>
 </div>
 
+<div id="div-a">
+    <center>
+        <p onclick="getUserLocation();">
+            获取用户位置信息
+        </p>
+        <p id="userLocation">
+            暂时还没有位置信息
+        </p>
+    </center>
+</div>
+
 <script type="text/javascript">
 
         function pushWebViewController(destinationURL, title)
         {
             call_native("pushWebViewController", {'destinationURL': destinationURL, 'title': title});
+        }
+
+        function getUserLocation()
+        {
+            call_native("getUserLocation", null, getUserLocationResult);
         }
 
         function calculateByNative(value)
@@ -100,6 +121,11 @@
         function showResult(resultNumber)
         {
             document.getElementById("result").innerText = resultNumber["squareValueResult"];
+        }
+
+        function getUserLocationResult(resultDictionary)
+        {
+            document.getElementById("userLocation").innerText = resultDictionary["getUserLocationResult"];
         }
 
     </script>

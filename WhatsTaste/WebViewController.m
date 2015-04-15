@@ -13,9 +13,11 @@
 @end
 
 @implementation WebViewController
+@synthesize jsCompletionHandlerDictionary;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jsCompletionHandlerDictionary = [NSMutableDictionary dictionary];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -83,6 +85,21 @@
     if (completionHandler) {
         completionHandler(nil);
     }
+}
+
+#pragma mark - JS CompletionHandlerDictionary
+- (void)callJSCompletionHandler:(NSString*)handlerName arguments:(NSDictionary*)arguments {
+    JavaScriptControllerCompletionHandler completionHandler = [self.jsCompletionHandlerDictionary objectForKey:handlerName];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+        
+        //Your code goes in here
+        if (completionHandler) {
+            completionHandler(arguments);
+        }
+        
+    }];
+    
 }
 
 @end
