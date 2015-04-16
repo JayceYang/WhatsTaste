@@ -37,7 +37,7 @@
 
 
     </style>
-
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script src="native_bridge.js"></script>
 
 </head>
@@ -80,7 +80,7 @@
 
 <div id="div-a">
     <center>
-        <p onclick="getUserLocation();">
+        <p onclick="getLocation();">
             获取用户位置信息
         </p>
         <p id="userLocation">
@@ -90,6 +90,56 @@
 </div>
 
 <script type="text/javascript">
+    
+        var x=document.getElementById("userLocation");
+        function getLocation()
+        {
+            if (navigator.geolocation)
+            {
+                navigator.geolocation.watchPosition(showPosition);
+            }
+            else{
+                x.innerHTML="Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position)
+        {
+            x.innerHTML="Latitude: " + position.coords.latitude +
+            "<br />Longitude: " + position.coords.longitude;
+            codeLatLng(position.coords.latitude, position.coords.longitude);
+        }
+
+        function codeLatLng(lat, lng) {
+            var latlng = new google.maps.LatLng(lat, lng);
+            geocoder.geocode({'latLng': latlng}, function(results, status) {
+                 if (status == google.maps.GeocoderStatus.OK) {
+                     console.log(results)
+                     if (results[1]) {
+                         //formatted address
+                         alert(results[0].formatted_address)
+                         //find country name
+                         for (var i=0; i<results[0].address_components.length; i++) {
+                            for (var b=0;b<results[0].address_components[i].types.length;b++) {
+                         
+                            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+                            if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                                     //this is the object you are looking for
+                                    city= results[0].address_components[i];
+                                    break;
+                                }
+                            }
+                         }
+                             //city data
+                         alert(city.short_name + " " + city.long_name)
+                     } else {
+                         alert("No results found");
+                     }
+                 } else {
+                     alert("Geocoder failed due to: " + status);
+                 }
+            });
+        }
 
         function pushWebViewController(destinationURL, title)
         {
