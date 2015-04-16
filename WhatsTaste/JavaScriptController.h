@@ -15,8 +15,8 @@ typedef void (^JavaScriptControllerCompletionHandler)(NSDictionary *arguments);
 
 @protocol JavaScriptControllerJSExport <JSExport>
 
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments;
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler;
+- (void)callNativeMethodWithArguments:(NSDictionary *)arguments;
+- (void)callNativeMethodWithArguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler;
 
 @end
 

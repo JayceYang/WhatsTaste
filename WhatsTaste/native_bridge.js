@@ -1,10 +1,10 @@
-function call_native(method, arguments)
+function call_native(arguments)
 {
     var callback = arguments['callback'];
     if (callback == 'undefined') {
-        native.callNativeMethodArguments(method, arguments);
+        native.callNativeMethodWithArguments(arguments);
     } else {
-        native.callNativeMethodArgumentsCompletionHandler(method, arguments, callback);
+        native.callNativeMethodWithArgumentsCompletionHandler(arguments, callback);
     }
 }
 

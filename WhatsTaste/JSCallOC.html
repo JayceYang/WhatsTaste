@@ -106,21 +106,21 @@
     }
     
     function getPlatformInfomation() {
-        call_native("getPlatformInfomation", {}, function(infoDict) {
+        call_native({'method':'getPlatformInfomation', 'callback': function(infoDict) {
                     document.getElementById("result").innerText = infoDict['SystemName'] + " " + infoDict['SystemVersion'] + " " + infoDict['DeviceName'];
-        });
+                    }});
     }
 
         function pushWebViewController(destinationURL, title)
         {
-            call_native("pushWebViewController", {'destinationURL': destinationURL, 'title': title});
+            call_native({'method': 'pushWebViewController', 'destinationURL': destinationURL, 'title': title});
         }
 
         function calculateByNative(value)
         {
             showResult("");
-            var arguments = {'squareValue': value, 'callback': showResult};
-            call_native("calculate", arguments);
+            var arguments = {'method': 'calculate', 'squareValue': value, 'callback': showResult};
+            call_native(arguments);
         }
 
         function calculateForNative(value)

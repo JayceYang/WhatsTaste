@@ -69,11 +69,12 @@
 
 #pragma mark - Java script calls native
 
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments {
-    [self callNativeMethod:method arguments:arguments completionHandler:nil];
+- (void)callNativeMethodWithArguments:(NSDictionary *)arguments {
+    [self callNativeMethodWithArguments:arguments completionHandler:nil];
 }
 
-- (void)callNativeMethod:(NSString *)method arguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler {
+- (void)callNativeMethodWithArguments:(NSDictionary *)arguments completionHandler:(JSValue *)completionHandler {
+    NSString *method = arguments[@"method"];
     if (method.length > 0) {
         JavaScriptControllerCompletionHandler jsCompletionHandler;
         if (completionHandler) {
