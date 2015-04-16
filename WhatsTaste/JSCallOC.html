@@ -119,11 +119,13 @@
         function calculateByNative(value)
         {
             showResult("");
-            call_native("calculate", {'squareValue': value}, showResult);
+            var arguments = {'squareValue': value, 'callback': showResult};
+            call_native("calculate", arguments);
         }
 
-        function calculateForNative(value, nativeCallback)
+        function calculateForNative(value)
         {
+            var nativeCallback = value["callback"];
             document.getElementById("cal_for_native").innerText = value["calculate"] + " * " + value["calculate"];
             var result = value["calculate"] * value["calculate"];
             setTimeout(function()

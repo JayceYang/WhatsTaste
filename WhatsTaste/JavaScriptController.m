@@ -58,15 +58,13 @@
             completionHandler(@{@"error": [NSString stringWithFormat:@"No JS method: %@", method]});
             return;
         }
-        NSMutableArray *safeArguments = [@[] mutableCopy];
-        if (arguments) {
-            [safeArguments addObject:arguments];
-        }
         if (completionHandler) {
-            [safeArguments addObject:completionHandler];
+            NSMutableDictionary *mutableDict = [arguments mutableCopy];
+            mutableDict[@"callback"] = [completionHandler copy];
+            arguments = mutableDict;
         }
-        [function callWithArguments:safeArguments];
-    }
+        
+        [function callWithArguments:@[arguments]];    }
 }
 
 #pragma mark - Java script calls native
