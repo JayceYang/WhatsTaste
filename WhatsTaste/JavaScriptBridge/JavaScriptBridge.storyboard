@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="x1P-m8-6W3">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="dSQ-XX-Dc9" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ope-0u-WJW"/>
+                        <viewControllerLayoutGuide type="bottom" id="6pN-4J-3iu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="039-d8-JNh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjR-rM-mU7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dSQ-XX-Dc9" id="gek-OJ-p6a"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6pN-4J-3iu" firstAttribute="top" secondItem="IjR-rM-mU7" secondAttribute="bottom" id="6oH-FE-Lbg"/>
+                            <constraint firstAttribute="trailing" secondItem="IjR-rM-mU7" secondAttribute="trailing" id="AxH-QD-aif"/>
+                            <constraint firstItem="IjR-rM-mU7" firstAttribute="top" secondItem="039-d8-JNh" secondAttribute="top" id="Ba4-XO-53q"/>
+                            <constraint firstItem="IjR-rM-mU7" firstAttribute="leading" secondItem="039-d8-JNh" secondAttribute="leading" id="TCU-Yc-Mlr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="IjR-rM-mU7" id="kT2-ea-KsJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipu-c2-Or7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221.33333333333334" y="823.60000000000002"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -14,6 +14,8 @@ typedef NSDictionary * (^NativeFunction)(NSDictionary *arguments);
 
 @interface WebViewController : UIViewController <UIWebViewDelegate>
 
++ (instancetype)webViewController;
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (copy, nonatomic) NSURL *destinationURL;
 @property (strong, nonatomic) JSContext *context;

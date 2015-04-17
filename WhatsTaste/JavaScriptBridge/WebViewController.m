@@ -15,6 +15,11 @@
 
 @implementation WebViewController
 
++ (instancetype)webViewController {
+    WebViewController *newWebController =[[UIStoryboard storyboardWithName:@"JavaScriptBridge" bundle:nil] instantiateViewControllerWithIdentifier:@"WebViewController"];
+    return newWebController;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
@@ -77,7 +82,7 @@
     NSString *destinationURL = arguments[@"destinationURL"];
     NSString *title = arguments[@"title"];
     
-    WebViewController *newWebController =[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WebViewController"];
+    WebViewController *newWebController = [[self class] webViewController];
     newWebController.destinationURL = [NSURL URLWithString:destinationURL];
     newWebController.title = title;
     [self.navigationController pushViewController:newWebController animated:YES];

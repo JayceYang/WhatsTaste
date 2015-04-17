@@ -18,6 +18,7 @@
 		EC0F34D31AE0E88700FB6DE5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0F34CE1AE0E88700FB6DE5 /* JavaScriptController.m */; };
 		EC0F34D41AE0E88700FB6DE5 /* native_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = EC0F34CF1AE0E88700FB6DE5 /* native_bridge.js */; };
 		EC0F34D51AE0E88700FB6DE5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0F34D11AE0E88700FB6DE5 /* WebViewController.m */; };
+		EC0F34E51AE0EC0B00FB6DE5 /* JavaScriptBridge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F34E41AE0EC0B00FB6DE5 /* JavaScriptBridge.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		EC0F34CF1AE0E88700FB6DE5 /* native_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = native_bridge.js; sourceTree = "<group>"; };
 		EC0F34D01AE0E88700FB6DE5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EC0F34D11AE0E88700FB6DE5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		EC0F34E41AE0EC0B00FB6DE5 /* JavaScriptBridge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JavaScriptBridge.storyboard; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 		EC0F34CA1AE0E88700FB6DE5 /* JavaScriptBridge */ = {
 			isa = PBXGroup;
 			children = (
+				EC0F34E41AE0EC0B00FB6DE5 /* JavaScriptBridge.storyboard */,
 				EC0F34CB1AE0E88700FB6DE5 /* DeviceHardware.h */,
 				EC0F34CC1AE0E88700FB6DE5 /* DeviceHardware.m */,
 				EC0F34CD1AE0E88700FB6DE5 /* JavaScriptController.h */,
@@ -230,6 +233,7 @@
 				28D190711ADBC759004C8A2F /* Main.storyboard in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
 				EC0F34D41AE0E88700FB6DE5 /* native_bridge.js in Resources */,
+				EC0F34E51AE0EC0B00FB6DE5 /* JavaScriptBridge.storyboard in Resources */,
 				28D1906F1ADBC759004C8A2F /* JSCallOC.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
