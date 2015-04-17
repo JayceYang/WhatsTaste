@@ -10,14 +10,14 @@
 		28D1906F1ADBC759004C8A2F /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 28D1906A1ADBC759004C8A2F /* JSCallOC.html */; };
 		28D190701ADBC759004C8A2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1906C1ADBC759004C8A2F /* ViewController.m */; };
 		28D190711ADBC759004C8A2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D1906D1ADBC759004C8A2F /* Main.storyboard */; };
-		28D190721ADBC759004C8A2F /* native_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 28D1906E1ADBC759004C8A2F /* native_bridge.js */; };
 		28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DB91ACD46ED00E11FB3 /* main.m */; };
 		28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */; };
 		28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E88DC41ACD46ED00E11FB3 /* Images.xcassets */; };
 		28E88DD41ACD46ED00E11FB3 /* WhatsTasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */; };
-		EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */; };
-		EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6BE1181AD64E3E00A3A249 /* WebViewController.m */; };
-		ECFD3E671ADE38A10099BCC2 /* DeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */; };
+		EC0F34D21AE0E88700FB6DE5 /* DeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0F34CC1AE0E88700FB6DE5 /* DeviceHardware.m */; };
+		EC0F34D31AE0E88700FB6DE5 /* JavaScriptController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0F34CE1AE0E88700FB6DE5 /* JavaScriptController.m */; };
+		EC0F34D41AE0E88700FB6DE5 /* native_bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = EC0F34CF1AE0E88700FB6DE5 /* native_bridge.js */; };
+		EC0F34D51AE0E88700FB6DE5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0F34D11AE0E88700FB6DE5 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 		28D1906B1ADBC759004C8A2F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		28D1906C1ADBC759004C8A2F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		28D1906D1ADBC759004C8A2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		28D1906E1ADBC759004C8A2F /* native_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = native_bridge.js; sourceTree = "<group>"; };
 		28E88DB41ACD46ED00E11FB3 /* WhatsTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DB81ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DB91ACD46ED00E11FB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,12 +44,13 @@
 		28E88DCD1ACD46ED00E11FB3 /* WhatsTasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsTasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E88DD21ACD46ED00E11FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E88DD31ACD46ED00E11FB3 /* WhatsTasteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatsTasteTests.m; sourceTree = "<group>"; };
-		EC4022B71AD77BE000AC18A5 /* JavaScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptController.h; sourceTree = "<group>"; };
-		EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
-		EC6BE1171AD64E3E00A3A249 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		EC6BE1181AD64E3E00A3A249 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		ECFD3E651ADE38A10099BCC2 /* DeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHardware.h; sourceTree = "<group>"; };
-		ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHardware.m; sourceTree = "<group>"; };
+		EC0F34CB1AE0E88700FB6DE5 /* DeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHardware.h; sourceTree = "<group>"; };
+		EC0F34CC1AE0E88700FB6DE5 /* DeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHardware.m; sourceTree = "<group>"; };
+		EC0F34CD1AE0E88700FB6DE5 /* JavaScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptController.h; sourceTree = "<group>"; };
+		EC0F34CE1AE0E88700FB6DE5 /* JavaScriptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptController.m; sourceTree = "<group>"; };
+		EC0F34CF1AE0E88700FB6DE5 /* native_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = native_bridge.js; sourceTree = "<group>"; };
+		EC0F34D01AE0E88700FB6DE5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		EC0F34D11AE0E88700FB6DE5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		F76143FD1AD667C1006313FA /* DefineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,20 +93,14 @@
 		28E88DB61ACD46ED00E11FB3 /* WhatsTaste */ = {
 			isa = PBXGroup;
 			children = (
-				ECFD3E651ADE38A10099BCC2 /* DeviceHardware.h */,
-				ECFD3E661ADE38A10099BCC2 /* DeviceHardware.m */,
+				EC0F34CA1AE0E88700FB6DE5 /* JavaScriptBridge */,
 				28E88DBB1ACD46ED00E11FB3 /* AppDelegate.h */,
 				28E88DBC1ACD46ED00E11FB3 /* AppDelegate.m */,
-				EC6BE1171AD64E3E00A3A249 /* WebViewController.h */,
-				EC6BE1181AD64E3E00A3A249 /* WebViewController.m */,
 				28D1906B1ADBC759004C8A2F /* ViewController.h */,
 				28D1906C1ADBC759004C8A2F /* ViewController.m */,
-				EC4022B71AD77BE000AC18A5 /* JavaScriptController.h */,
-				EC4022B81AD77BE000AC18A5 /* JavaScriptController.m */,
 				F76143FD1AD667C1006313FA /* DefineMacro.h */,
 				28D1906D1ADBC759004C8A2F /* Main.storyboard */,
 				28D1906A1ADBC759004C8A2F /* JSCallOC.html */,
-				28D1906E1ADBC759004C8A2F /* native_bridge.js */,
 				28E88DC41ACD46ED00E11FB3 /* Images.xcassets */,
 				28E88DB71ACD46ED00E11FB3 /* Supporting Files */,
 			);
@@ -137,6 +131,20 @@
 				28E88DD21ACD46ED00E11FB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC0F34CA1AE0E88700FB6DE5 /* JavaScriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F34CB1AE0E88700FB6DE5 /* DeviceHardware.h */,
+				EC0F34CC1AE0E88700FB6DE5 /* DeviceHardware.m */,
+				EC0F34CD1AE0E88700FB6DE5 /* JavaScriptController.h */,
+				EC0F34CE1AE0E88700FB6DE5 /* JavaScriptController.m */,
+				EC0F34CF1AE0E88700FB6DE5 /* native_bridge.js */,
+				EC0F34D01AE0E88700FB6DE5 /* WebViewController.h */,
+				EC0F34D11AE0E88700FB6DE5 /* WebViewController.m */,
+			);
+			path = JavaScriptBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +229,7 @@
 			files = (
 				28D190711ADBC759004C8A2F /* Main.storyboard in Resources */,
 				28E88DC51ACD46ED00E11FB3 /* Images.xcassets in Resources */,
-				28D190721ADBC759004C8A2F /* native_bridge.js in Resources */,
+				EC0F34D41AE0E88700FB6DE5 /* native_bridge.js in Resources */,
 				28D1906F1ADBC759004C8A2F /* JSCallOC.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,10 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC6BE1191AD64E3E00A3A249 /* WebViewController.m in Sources */,
-				ECFD3E671ADE38A10099BCC2 /* DeviceHardware.m in Sources */,
+				EC0F34D31AE0E88700FB6DE5 /* JavaScriptController.m in Sources */,
+				EC0F34D51AE0E88700FB6DE5 /* WebViewController.m in Sources */,
 				28E88DBD1ACD46ED00E11FB3 /* AppDelegate.m in Sources */,
-				EC4022B91AD77BE000AC18A5 /* JavaScriptController.m in Sources */,
+				EC0F34D21AE0E88700FB6DE5 /* DeviceHardware.m in Sources */,
 				28E88DBA1ACD46ED00E11FB3 /* main.m in Sources */,
 				28D190701ADBC759004C8A2F /* ViewController.m in Sources */,
 			);
