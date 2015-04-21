@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"/>
+
+    <title>Hybird</title>
+
+    <style>
+        *
+        {
+        //-webkit-tap-highlight-color: rgba(0,0,0,0);
+        text-decoration: none;
+        }
+
+        html,body
+        {
+        -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+        -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+        }
+
+        #div-a
+        {
+        background:#FBA;
+        color:#FFF;
+
+        border-radius: 25px 25px 25px 25px;
+        }
+    
+        #avatar
+        {
+            width: 46px;
+            height: 44px;
+        }
+
+    </style>
+
+    <script src="native_bridge.js"></script>
+
+</head>
+
+<body style="background:#CDE; color:#FFF">
+
+<div id="div-a">
+    <center>
+
+        <br/>
+        <input type="checkbox" id="PayCheck1" value="Value1" onclick="selectOnlyThis(this.id);" />Paypal</input>
+        <br/>
+        <input type="checkbox" id="PayCheck2" value="Value1" onclick="selectOnlyThis(this.id);" />Alipay</input>
+        <br/>
+        
+        <br/>
+        <input type="button" value="支付" onclick="pay();" />
+        <br/>
+
+    </center>
+</div>
+
+<script type="text/javascript">
+
+    var currentPayType = -1;
+    function selectOnlyThis(id) {
+        for (var i = 1;i <= 2; i++)
+        {
+            document.getElementById("PayCheck" + i).checked = false;
+        }
+        document.getElementById(id).checked = true;
+        currentPayType = id;
+    }
+
+    function pay() {
+
+        if (-1 == currentPayType) {
+            alert("请选择支付方式");
+        }else if ("PayCheck1" == currentPayType) {
+            alert("Paypal支付方式");
+            call_native({'method':'paypalPayment', 'payinfo':{
+                            'currencyCode':'RMB',
+                            'amount':'5684.5',
+                            'shortDescription':'shoes',
+                            'uuid':'xyzhy',
+                            'logisticsFee':null,
+                            'logisticsPayment':null,
+                            'quantity':null,
+                            'discount':null,
+                            'shippingAddress':{
+                                'firstName':'Lucy',
+                                'lastName':'Green',
+                                'address1':'Room 0503, Unit 1, Building 3, No.453, Beicang Road, Congtai District',
+                                'address2':'The 2nd Floor, Shenzhen Development Bank Building, No.22, Jinlong Road',
+                                'city':'shenzhen',
+                                'state':'Guangdong',
+                                'country':'China',
+                                'zipCode':'518060',
+                                'nightPhoneA':'13458971250',
+                                'nightPhoneB':'18679428457',
+                                'email':'buyer@163.com'
+                                }
+                            },
+                        'callback': function(infoDict) {
+
+                        }
+            });
+        }else if ("PayCheck2" == currentPayType) {
+            alert("Alipay支付方式");
+            call_native({'method':'paypalPayment',
+                        'payinfo':{
+                            'currencyCode':null,
+                            'amount':'2360.0',
+                            'shortDescription':'coat',
+                            'uuid':'abcdefg',
+                            'logisticsFee':'0',
+                            'logisticsPayment':'SELLER_PAY',
+                            'quantity':'1',
+                            'discount':'0',
+                            'shippingAddress':null
+                            },
+                        'callback': function(infoDict) {
+
+            }});
+        }
+    }
+
+    </script>
+</body>
+
+</html>
